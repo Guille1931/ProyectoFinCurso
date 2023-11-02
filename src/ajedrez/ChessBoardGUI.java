@@ -19,11 +19,15 @@ public class ChessBoardGUI {
     private static final int TAMANIO_TABLERO = 8;
     private static final int TAMANIO_CASILLA = 80;
     private Map<JPanel, String> posicionesPiezas;
-    private JPanel casillaSeleccionada;    
+    private JPanel casillaSeleccionada;      
     private JLabel etiquetaTiempo;
     private Timer temporizador;
     private int segundos;
     private JLabel etiquetaTurno;
+    private ButtonGroup grupoColores;
+    private JRadioButton blancoButton;
+    private JRadioButton grisButton;
+    private JLabel etiquetaTiempoTranscurrido;
 
     public ChessBoardGUI() {
         marco = new JFrame("Tablero de Ajedrez");
@@ -35,33 +39,82 @@ public class ChessBoardGUI {
         listaMovimientos = new JList<>(listaMovimientosModelo);
 
         posicionesPiezas = new HashMap<>();             
-        etiquetaTiempo = new JLabel("Tiempo: 0s");
+        etiquetaTiempoTranscurrido = new JLabel("Tiempo transcurrido: 0s");
+        etiquetaTiempo = new JLabel("Tiempo: 0s");  // Inicializar etiquetaTiempo antes de temporizador
         etiquetaTurno = new JLabel("Turno de las Blancas");
         temporizador = new Timer(1000, new ActionListener() {
            
-        	@Override
-            public void actionPerformed(ActionEvent e) {
+        	public void actionPerformed(ActionEvent e) {
                 segundos++;
                 etiquetaTiempo.setText("Tiempo: " + segundos + "s");
-                
-             // Cambiar turno automáticamente cada 10 segundos (por ejemplo)
-                if (segundos % 10 == 0) {
-                    //cambiarTurno();
-                }
+                         }
+        });
+        iniciarTemporizador();        
+        grupoColores = new ButtonGroup();
+        blancoButton = new JRadioButton("Blanco");
+        grisButton = new JRadioButton("Gris");
+        // Establecer el radioBlanco como seleccionado por defecto
+        blancoButton.setSelected(true);
+        
+        grupoColores.add(blancoButton);
+        grupoColores.add(grisButton);
+
+        blancoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cambiarColorTablero(Color.WHITE, Color.LIGHT_GRAY);
             }
         });
 
-        iniciarTemporizador(); // Iniciar el temporizador al crear la instancia
+        grisButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                cambiarColorTablero(Color.GRAY, Color.DARK_GRAY);
+            }
+        });
+
+        JPanel panelOpciones = new JPanel();
+        panelOpciones.add(new JLabel("Color del tablero: "));
+        panelOpciones.add(blancoButton);
+        panelOpciones.add(grisButton);
+
+        marco.add(panelOpciones, BorderLayout.NORTH);
+        
+        temporizador = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                segundos++;
+                etiquetaTiempo.setText("Tiempo: " + segundos + "s");
+
+                if (segundos % 10 == 0) {
+                    cambiarTurno();
+                }
+            }
+        });   
+        
         inicializarTablero();
         configurarInterfaz();
         actualizarLabelTurno(); // Agrega esta línea para inicializar el label del turno
-    
+       
+    }    
+       
+    private void cambiarColorTablero(Color colorCasillasBlancas, Color colorCasillasNegras) {
+        for (Component componente : panelTablero.getComponents()) {
+            if (componente instanceof JPanel) {
+                JPanel casilla = (JPanel) componente;
+                int indiceCasilla = panelTablero.getComponentZOrder(casilla);
+                int fila = indiceCasilla / TAMANIO_TABLERO;
+                int columna = indiceCasilla % TAMANIO_TABLERO;
+                Color colorCasilla = (fila + columna) % 2 == 0 ? colorCasillasBlancas : colorCasillasNegras;
+                casilla.setBackground(colorCasilla);
+            }
+        }
     }
 
     private void configurarInterfaz() {
-        JPanel panelBotones = new JPanel();
-       // panelBotones.add(botonCambiarTurno);        
-        panelBotones.add(etiquetaTiempo);       
+    	JPanel panelBotones = new JPanel();     
+        panelBotones.add(etiquetaTiempo);
+        panelBotones.add(etiquetaTiempoTranscurrido);
         panelBotones.add(etiquetaTurno);
 
         marco.add(panelTablero, BorderLayout.CENTER);
@@ -92,8 +145,11 @@ public class ChessBoardGUI {
     }
     
     private void iniciarTemporizador() {
-        temporizador.start();
-    }      
+        temporizador.stop();
+        segundos = 0;
+        etiquetaTiempo.setText("Tiempo: 0s");
+    }
+   
      
     private void colocarPiezasIniciales() {
         for (int fila = 0; fila < TAMANIO_TABLERO; fila++) {
@@ -172,7 +228,7 @@ public class ChessBoardGUI {
         }
     }
 
-        private void moverPieza(JPanel desdeCasilla, JPanel aCasilla) {
+    private void moverPieza(JPanel desdeCasilla, JPanel aCasilla) {
             String piezaMovida = posicionesPiezas.get(desdeCasilla);
             String piezaCapturada = posicionesPiezas.get(aCasilla);
 
@@ -189,8 +245,8 @@ public class ChessBoardGUI {
                     break;
                     }
                 }
-            }
-
+            }            
+         
             // Elimina la pieza de la casilla de origen
             posicionesPiezas.remove(desdeCasilla);
 
@@ -234,12 +290,16 @@ public class ChessBoardGUI {
             } else {
                 listaMovimientosModelo.add(0, movimiento);
             }
-            
+         
+            // Registrar el movimiento en el registro y en la base de datos 
+            Registro.registrarMovimiento(movimiento);
+            BaseDeDatos.guardarMovimientoEnBaseDeDatos(movimiento);
+
             // Cambia el turno al finalizar un movimiento válido
             cambiarTurno();
         }
 
-        private void cambiarTurno() {
+    private void cambiarTurno() {
             if (casillaSeleccionada != null) {
                 turnoBlancas = !turnoBlancas;
                 segundos = 0;
@@ -250,14 +310,14 @@ public class ChessBoardGUI {
             }
         }
 
-        private String obtenerNombreCasilla(JPanel casilla) {
+    private String obtenerNombreCasilla(JPanel casilla) {
             int columna = panelTablero.getComponentZOrder(casilla) % TAMANIO_TABLERO;
             char letraColumna = (char) ('a' + columna);
             int fila = TAMANIO_TABLERO - 1 - panelTablero.getComponentZOrder(casilla) / TAMANIO_TABLERO;
             return "" + letraColumna + fila;
         }
 
-        private boolean esMovimientoValido(JPanel desdeCasilla, JPanel aCasilla) {
+    private boolean esMovimientoValido(JPanel desdeCasilla, JPanel aCasilla) {
             int filaDesde = panelTablero.getComponentZOrder(desdeCasilla) / TAMANIO_TABLERO;
             int columnaDesde = panelTablero.getComponentZOrder(desdeCasilla) % TAMANIO_TABLERO;
             int filaHasta = panelTablero.getComponentZOrder(aCasilla) / TAMANIO_TABLERO;
@@ -336,7 +396,7 @@ public class ChessBoardGUI {
             return false;
         }        
 
-        private boolean esCaminoVerticalLibre(int filaDesde, int columnaDesde, int filaHasta, int columnaHasta) {
+    private boolean esCaminoVerticalLibre(int filaDesde, int columnaDesde, int filaHasta, int columnaHasta) {
             int inicio = Math.min(filaDesde, filaHasta) + 1;
             int fin = Math.max(filaDesde, filaHasta);
             for (int i = inicio; i < fin; i++) {
@@ -347,7 +407,7 @@ public class ChessBoardGUI {
             return true;
         }
 
-        private boolean esCaminoHorizontalLibre(int filaDesde, int columnaDesde, int filaHasta, int columnaHasta) {
+    private boolean esCaminoHorizontalLibre(int filaDesde, int columnaDesde, int filaHasta, int columnaHasta) {
             int inicio = Math.min(columnaDesde, columnaHasta) + 1;
             int fin = Math.max(columnaDesde, columnaHasta);
             for (int i = inicio; i < fin; i++) {
@@ -358,8 +418,7 @@ public class ChessBoardGUI {
             return true;
         }
 
-
-        private boolean esCaminoDiagonalLibre(int filaDesde, int columnaDesde, int filaHasta, int columnaHasta) {
+    private boolean esCaminoDiagonalLibre(int filaDesde, int columnaDesde, int filaHasta, int columnaHasta) {
             int difFila = Math.abs(filaHasta - filaDesde);
             int incrementoFila = (filaHasta > filaDesde) ? 1 : -1;
             int incrementoColumna = (columnaHasta > columnaDesde) ? 1 : -1;
@@ -375,13 +434,10 @@ public class ChessBoardGUI {
             return true;
         }
 
-        private JPanel obtenerCasilla(int fila, int columna) {
+    private JPanel obtenerCasilla(int fila, int columna) {
             Component[] componentes = panelTablero.getComponents();
             return (JPanel) componentes[fila * TAMANIO_TABLERO + columna];
         }
     
 
-public static void main(String[] args) {
-    SwingUtilities.invokeLater(() -> new ChessBoardGUI());
-}
 }

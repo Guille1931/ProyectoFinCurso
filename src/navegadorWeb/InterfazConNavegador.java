@@ -1,14 +1,9 @@
-package pokemon;
+package navegadorWeb;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.net.URL;
-
-import net.htmlparser.jericho.Renderer;
-import net.htmlparser.jericho.Source;
 
 public class InterfazConNavegador {
 
@@ -33,25 +28,6 @@ public class InterfazConNavegador {
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String url = searchField.getText();
-
-                // Intenta cargar la URL y mostrarla correctamente en el JEditorPane
-                try {
-                    URL urlObject = new URL(url);
-                    Source source = new Source(urlObject);
-                    Renderer renderer = new Renderer(source);
-                    editorPane.setText(renderer.toString());
-                } catch (IOException ex) {
-                    editorPane.setText("Error al cargar la página.");
-                }
-
-                // Realiza alguna acción con la consulta, por ejemplo, cargar una página de búsqueda.
-                // Aquí puedes implementar la lógica de búsqueda.
-
-                // Guarda la URL en la base de datos
-                guardarURLenBaseDeDatos(url);
-
-                System.out.println("Búsqueda: " + url);
             }
         });
 
@@ -75,9 +51,5 @@ public class InterfazConNavegador {
         frame.add(new JScrollPane(editorPane), BorderLayout.CENTER);
         frame.setSize(800, 600); // Establece el tamaño del JFrame
         frame.setVisible(true);
-    }
-
-    private static void guardarURLenBaseDeDatos(String url) {
-        // Aquí iría el código para guardar la URL en la base de datos (igual que antes)
     }
 }

@@ -1,4 +1,4 @@
-package pokemon;
+package navegadorWeb;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

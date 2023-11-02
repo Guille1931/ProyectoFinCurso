@@ -14,5 +14,10 @@
 	<classpathentry kind="lib" path="lib/javafx.controls.jar"/>
 	<classpathentry kind="lib" path="lib/javafx.fxml.jar"/>
 	<classpathentry kind="lib" path="lib/javafx.media.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="lib/hsqldb.jar"/>
+	<classpathentry kind="lib" path="lib/jackcess-2.1.9.jar"/>
+	<classpathentry kind="lib" path="lib/ucanaccess-4.0.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
