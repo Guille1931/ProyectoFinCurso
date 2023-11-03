@@ -19,15 +19,11 @@ public class ChessBoardGUI {
     private static final int TAMANIO_TABLERO = 8;
     private static final int TAMANIO_CASILLA = 80;
     private Map<JPanel, String> posicionesPiezas;
-    private JPanel casillaSeleccionada;      
-    private JLabel etiquetaTiempo;
-    private Timer temporizador;
-    private int segundos;
+    private JPanel casillaSeleccionada;   
     private JLabel etiquetaTurno;
     private ButtonGroup grupoColores;
     private JRadioButton blancoButton;
-    private JRadioButton grisButton;
-    private JLabel etiquetaTiempoTranscurrido;
+    private JRadioButton grisButton;   
 
     public ChessBoardGUI() {
         marco = new JFrame("Tablero de Ajedrez");
@@ -39,17 +35,9 @@ public class ChessBoardGUI {
         listaMovimientos = new JList<>(listaMovimientosModelo);
 
         posicionesPiezas = new HashMap<>();             
-        etiquetaTiempoTranscurrido = new JLabel("Tiempo transcurrido: 0s");
-        etiquetaTiempo = new JLabel("Tiempo: 0s");  // Inicializar etiquetaTiempo antes de temporizador
-        etiquetaTurno = new JLabel("Turno de las Blancas");
-        temporizador = new Timer(1000, new ActionListener() {
-           
-        	public void actionPerformed(ActionEvent e) {
-                segundos++;
-                etiquetaTiempo.setText("Tiempo: " + segundos + "s");
-                         }
-        });
-        iniciarTemporizador();        
+        
+        etiquetaTurno = new JLabel("Turno de las Blancas");        
+               
         grupoColores = new ButtonGroup();
         blancoButton = new JRadioButton("Blanco");
         grisButton = new JRadioButton("Gris");
@@ -77,20 +65,7 @@ public class ChessBoardGUI {
         panelOpciones.add(new JLabel("Color del tablero: "));
         panelOpciones.add(blancoButton);
         panelOpciones.add(grisButton);
-
-        marco.add(panelOpciones, BorderLayout.NORTH);
-        
-        temporizador = new Timer(1000, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                segundos++;
-                etiquetaTiempo.setText("Tiempo: " + segundos + "s");
-
-                if (segundos % 10 == 0) {
-                    cambiarTurno();
-                }
-            }
-        });   
+        marco.add(panelOpciones, BorderLayout.NORTH);            
         
         inicializarTablero();
         configurarInterfaz();
@@ -112,9 +87,8 @@ public class ChessBoardGUI {
     }
 
     private void configurarInterfaz() {
-    	JPanel panelBotones = new JPanel();     
-        panelBotones.add(etiquetaTiempo);
-        panelBotones.add(etiquetaTiempoTranscurrido);
+    	JPanel panelBotones = new JPanel();    
+        
         panelBotones.add(etiquetaTurno);
 
         marco.add(panelTablero, BorderLayout.CENTER);
@@ -142,15 +116,8 @@ public class ChessBoardGUI {
     
     private void actualizarLabelTurno() {
         etiquetaTurno.setText("Turno de las " + (turnoBlancas ? "Blancas" : "Negras"));
-    }
-    
-    private void iniciarTemporizador() {
-        temporizador.stop();
-        segundos = 0;
-        etiquetaTiempo.setText("Tiempo: 0s");
-    }
-   
-     
+    }     
+        
     private void colocarPiezasIniciales() {
         for (int fila = 0; fila < TAMANIO_TABLERO; fila++) {
             for (int columna = 0; columna < TAMANIO_TABLERO; columna++) {
@@ -300,15 +267,14 @@ public class ChessBoardGUI {
         }
 
     private void cambiarTurno() {
-            if (casillaSeleccionada != null) {
-                turnoBlancas = !turnoBlancas;
-                segundos = 0;
-                etiquetaTurno.setText("Turno de " + (turnoBlancas ? "las Blancas" : "las Negras"));
-                iniciarTemporizador();
-            } else {
-                JOptionPane.showMessageDialog(null, "Debes seleccionar una pieza y realizar un movimiento válido antes de cambiar de turno.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
+        if (casillaSeleccionada != null) {
+            turnoBlancas = !turnoBlancas;
+            etiquetaTurno.setText("Turno de " + (turnoBlancas ? "las Blancas" : "las Negras"));
+            casillaSeleccionada = null;
+        } else {
+            JOptionPane.showMessageDialog(null, "Debes seleccionar una pieza y realizar un movimiento válido antes de cambiar de turno.", "Error", JOptionPane.ERROR_MESSAGE);
         }
+    }
 
     private String obtenerNombreCasilla(JPanel casilla) {
             int columna = panelTablero.getComponentZOrder(casilla) % TAMANIO_TABLERO;
@@ -437,7 +403,5 @@ public class ChessBoardGUI {
     private JPanel obtenerCasilla(int fila, int columna) {
             Component[] componentes = panelTablero.getComponents();
             return (JPanel) componentes[fila * TAMANIO_TABLERO + columna];
-        }
-    
-
-}
+        	}
+    }
