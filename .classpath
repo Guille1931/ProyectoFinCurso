@@ -19,5 +19,8 @@
 	<classpathentry kind="lib" path="lib/hsqldb.jar"/>
 	<classpathentry kind="lib" path="lib/jackcess-2.1.9.jar"/>
 	<classpathentry kind="lib" path="lib/ucanaccess-4.0.3.jar"/>
+	<classpathentry kind="lib" path="lib/jmf-2.1.1e.jar"/>
+	<classpathentry kind="lib" path="lib/jna-3.5.1.jar"/>
+	<classpathentry kind="lib" path="lib/vlcj-2.3.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
