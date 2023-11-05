@@ -87,3 +87,184 @@
 02-11-2023 23:23:03 - torreB: a7 a a4
 02-11-2023 23:23:12 - caballoN: c6 a e7 (captura reyB)
 02-11-2023 23:23:25 - peonB: a3 a a2
+05-11-2023 14:09:54 - peonB: a6 a a5
+05-11-2023 14:10:00 - caballoN: b0 a c2
+05-11-2023 14:10:02 - peonB: a5 a a4
+05-11-2023 14:10:04 - caballoN: c2 a b4
+05-11-2023 14:10:06 - peonB: a4 a a3
+05-11-2023 14:10:10 - caballoN: b4 a c6 (captura peonB)
+05-11-2023 14:10:13 - peonB: a3 a a2
+05-11-2023 14:10:16 - caballoN: c6 a e7 (captura reyB)
+05-11-2023 14:10:38 - peonB: a2 a b1 (captura peonN)
+05-11-2023 20:12:54 - peonB: a6 a a5
+05-11-2023 20:12:59 - caballoN: b0 a c2
+05-11-2023 20:13:02 - peonB: b6 a b5
+05-11-2023 20:13:04 - caballoN: c2 a b4
+05-11-2023 20:13:06 - peonB: a5 a a4
+05-11-2023 20:13:09 - caballoN: b4 a c6 (captura peonB)
+05-11-2023 20:13:12 - peonB: b5 a b4
+05-11-2023 20:13:14 - caballoN: c6 a e7 (captura reyB)
+05-11-2023 20:13:19 - peonB: a4 a a3
+05-11-2023 20:39:28 - peonB: a6 a a5
+05-11-2023 20:39:33 - caballoN: b0 a c2
+05-11-2023 20:39:48 - caballoB: b7 a c5
+05-11-2023 20:39:52 - peonN: a1 a a2
+05-11-2023 20:39:56 - caballoB: c5 a d3
+05-11-2023 20:40:00 - peonN: a2 a a3
+05-11-2023 20:40:03 - caballoB: d3 a c1 (captura peonN)
+05-11-2023 20:40:10 - caballoN: c2 a b4
+05-11-2023 20:40:14 - caballoB: c1 a e0 (captura reyN)
+05-11-2023 20:40:18 - caballoN: b4 a c6 (captura peonB)
+05-11-2023 20:40:32 - caballoB: e0 a g1 (captura peonN)
+05-11-2023 20:40:35 - caballoN: c6 a e7 (captura reyB)
+05-11-2023 20:42:43 - peonB: a6 a a5
+05-11-2023 20:42:54 - caballoN: b0 a c2
+05-11-2023 20:43:04 - caballoB: b7 a c5
+05-11-2023 20:43:10 - caballoN: c2 a b4
+05-11-2023 20:43:13 - caballoB: c5 a b3
+05-11-2023 20:43:17 - caballoN: b4 a c6 (captura peonB)
+05-11-2023 20:43:21 - caballoB: b3 a c1 (captura peonN)
+05-11-2023 20:43:25 - caballoN: c6 a e7 (captura reyB)
+05-11-2023 20:43:31 - caballoB: c1 a e0 (captura reyN)
+05-11-2023 20:54:54 - peonB: a6 a a5
+05-11-2023 20:55:02 - peonN: e1 a e2
+05-11-2023 20:55:12 - peonB: a5 a a4
+05-11-2023 20:55:15 - reinaN: d0 a f2
+05-11-2023 20:55:18 - peonB: a4 a a3
+05-11-2023 20:55:24 - alfilN: f0 a c3
+05-11-2023 20:55:29 - peonB: a3 a a2
+05-11-2023 20:55:33 - reinaN: f2 a f6 (captura peonB)
+05-11-2023 20:55:37 - reyB: e7 a f6 (captura reinaN)
+05-11-2023 20:55:53 - alfilN: c3 a f6 (captura reyB)
+05-11-2023 21:38:40 - peonB: a6 a a5
+05-11-2023 21:38:48 - caballoN: b0 a c2
+05-11-2023 21:38:51 - peonB: a5 a a4
+05-11-2023 21:38:54 - caballoN: c2 a b4
+05-11-2023 21:38:57 - peonB: a4 a a3
+05-11-2023 21:38:59 - caballoN: b4 a c6 (captura peonB)
+05-11-2023 21:39:03 - peonB: a3 a a2
+05-11-2023 21:39:06 - caballoN: c6 a e7 (captura reyB)
+05-11-2023 21:39:11 - peonB: a2 a b1 (captura peonN)
+05-11-2023 21:39:15 - caballoN: e7 a g6 (captura peonB)
+05-11-2023 21:39:19 - peonB: b1 a c0 (captura alfilN)
+05-11-2023 21:39:26 - caballoN: g6 a e5
+05-11-2023 21:39:29 - caballoB: b7 a c5
+05-11-2023 21:39:32 - caballoN: e5 a d7 (captura reinaB)
+05-11-2023 21:39:35 - caballoB: c5 a d3
+05-11-2023 21:39:38 - caballoN: d7 a b6 (captura peonB)
+05-11-2023 21:39:42 - caballoB: d3 a c1 (captura peonN)
+05-11-2023 21:39:50 - caballoN: b6 a d5
+05-11-2023 21:39:53 - caballoB: c1 a e0 (captura reyN)
+05-11-2023 21:39:57 - caballoN: d5 a f6 (captura peonB)
+05-11-2023 21:40:00 - caballoB: e0 a g1 (captura peonN)
+05-11-2023 21:40:03 - caballoN: f6 a h7 (captura torreB)
+05-11-2023 21:40:08 - caballoB: g1 a e2
+05-11-2023 21:40:11 - caballoN: h7 a g5
+05-11-2023 21:40:14 - caballoB: e2 a d0 (captura reinaN)
+05-11-2023 21:40:27 - caballoN: g5 a f7 (captura alfilB)
+05-11-2023 21:40:30 - caballoB: d0 a f1 (captura peonN)
+05-11-2023 21:40:33 - caballoN: f7 a d6 (captura peonB)
+05-11-2023 21:40:36 - caballoB: f1 a h0 (captura torreN)
+05-11-2023 21:40:43 - caballoN: d6 a b5
+05-11-2023 21:40:47 - caballoB: h0 a g2
+05-11-2023 21:40:49 - caballoN: b5 a a7 (captura torreB)
+05-11-2023 21:40:52 - caballoB: g2 a f0 (captura alfilN)
+05-11-2023 21:40:55 - caballoN: a7 a b5
+05-11-2023 21:40:58 - caballoB: f0 a d1 (captura peonN)
+05-11-2023 21:41:01 - caballoN: b5 a c7 (captura alfilB)
+05-11-2023 21:41:04 - caballoB: d1 a b2
+05-11-2023 21:41:08 - caballoN: c7 a e6 (captura peonB)
+05-11-2023 21:41:15 - caballoB: b2 a a0 (captura torreN)
+05-11-2023 21:41:19 - caballoN: e6 a g7 (captura caballoB)
+05-11-2023 21:41:27 - caballoB: a0 a c1
+05-11-2023 21:41:31 - caballoN: g7 a f5
+05-11-2023 21:41:34 - caballoB: c1 a d3
+05-11-2023 21:41:37 - caballoN: f5 a h6 (captura peonB)
+05-11-2023 21:41:40 - caballoB: d3 a e1 (captura peonN)
+05-11-2023 21:41:43 - caballoN: h6 a g4
+05-11-2023 21:41:45 - caballoB: e1 a g0 (captura caballoN)
+05-11-2023 21:41:49 - caballoN: g4 a f2
+05-11-2023 21:41:57 - caballoB: g0 a e1
+05-11-2023 21:42:06 - caballoN: f2 a d3
+05-11-2023 21:42:09 - caballoB: e1 a c2
+05-11-2023 21:42:12 - caballoN: d3 a e1
+05-11-2023 21:42:15 - caballoB: c2 a a1 (captura peonN)
+05-11-2023 21:42:18 - caballoN: e1 a c0 (captura peonB)
+05-11-2023 21:42:21 - caballoB: a1 a c2
+05-11-2023 21:42:24 - caballoN: c0 a e1
+05-11-2023 21:42:37 - caballoB: c2 a d0
+05-11-2023 21:42:44 - caballoN: e1 a f3
+05-11-2023 21:42:47 - caballoB: d0 a f1
+05-11-2023 21:42:56 - caballoN: f3 a h2
+05-11-2023 21:43:01 - caballoB: f1 a h2 (captura caballoN)
+05-11-2023 21:48:09 - peonB: a6 a a5
+05-11-2023 21:48:18 - caballoN: b0 a c2
+05-11-2023 21:48:21 - peonB: a5 a a4
+05-11-2023 21:48:28 - caballoN: c2 a b4
+05-11-2023 21:48:34 - peonB: a4 a a3
+05-11-2023 21:48:40 - caballoN: b4 a c6 (captura peonB)
+05-11-2023 21:48:52 - torreB: a7 a a4
+05-11-2023 21:48:55 - caballoN: c6 a e7 (captura reyB)
+05-11-2023 21:50:37 - peonB: a6 a a5
+05-11-2023 21:50:42 - caballoN: b0 a c2
+05-11-2023 21:50:44 - peonB: a5 a a4
+05-11-2023 21:50:50 - caballoN: c2 a b4
+05-11-2023 21:50:53 - peonB: a4 a a3
+05-11-2023 21:50:55 - caballoN: b4 a c6 (captura peonB)
+05-11-2023 21:50:58 - peonB: a3 a a2
+05-11-2023 21:51:01 - caballoN: c6 a e7 (captura reyB)
+05-11-2023 21:58:01 - peonB: a6 a a5
+05-11-2023 21:58:45 - caballoN: b0 a c2
+05-11-2023 21:58:47 - peonB: a5 a a4
+05-11-2023 21:58:58 - caballoN: c2 a b4
+05-11-2023 21:59:03 - peonB: a4 a a3
+05-11-2023 21:59:09 - caballoN: b4 a c6 (captura peonB)
+05-11-2023 21:59:16 - peonB: a3 a a2
+05-11-2023 21:59:19 - caballoN: c6 a e7 (captura reyB)
+05-11-2023 22:28:48 - peonB: a6 a a5
+05-11-2023 22:31:02 - peonN: a1 a a2
+05-11-2023 22:31:15 - peonB: a5 a a4
+05-11-2023 22:32:00 - peonN: b1 a b2
+05-11-2023 22:33:16 - peonB: b6 a b5
+05-11-2023 22:46:15 - peonB: a6 a a5
+05-11-2023 22:46:18 - peonN: a1 a a2
+05-11-2023 22:46:21 - peonB: a5 a a4
+05-11-2023 22:46:24 - caballoN: b0 a c2
+05-11-2023 22:46:27 - peonB: a4 a a3
+05-11-2023 22:46:36 - caballoN: c2 a b4
+05-11-2023 22:46:39 - torreB: a7 a a4
+05-11-2023 22:46:42 - caballoN: b4 a c6 (captura peonB)
+05-11-2023 22:46:51 - caballoB: b7 a a5
+05-11-2023 22:46:53 - caballoN: c6 a e7 (captura reyB)
+05-11-2023 22:47:04 - peonB: e6 a e5
+05-11-2023 22:53:03 - caballoB: b7 a c5
+05-11-2023 22:53:07 - caballoN: b0 a c2
+05-11-2023 22:53:18 - caballoB: c5 a b3
+05-11-2023 22:53:22 - caballoN: c2 a b4
+05-11-2023 22:53:26 - caballoB: b3 a c1 (captura peonN)
+05-11-2023 22:53:28 - caballoN: b4 a c6 (captura peonB)
+05-11-2023 22:53:31 - caballoB: c1 a e0 (captura reyN)
+05-11-2023 22:53:51 - caballoN: c6 a e7 (captura reyB)
+05-11-2023 22:56:49 - caballoB: b7 a c5
+05-11-2023 22:56:53 - caballoN: b0 a c2
+05-11-2023 22:57:02 - caballoB: c5 a b3
+05-11-2023 22:57:07 - caballoN: c2 a b4
+05-11-2023 22:57:14 - caballoB: b3 a c1 (captura peonN)
+05-11-2023 22:57:18 - caballoN: b4 a c6 (captura peonB)
+05-11-2023 22:57:27 - caballoB: c1 a e0 (captura reyN)
+05-11-2023 23:01:58 - peonB: a6 a a5
+05-11-2023 23:02:02 - caballoN: b0 a c2
+05-11-2023 23:02:04 - peonB: a5 a a4
+05-11-2023 23:02:15 - caballoN: c2 a b4
+05-11-2023 23:02:17 - peonB: a4 a a3
+05-11-2023 23:02:19 - caballoN: b4 a c6 (captura peonB)
+05-11-2023 23:02:22 - peonB: a3 a a2
+05-11-2023 23:02:25 - caballoN: c6 a e7 (captura reyB)
+05-11-2023 23:07:02 - peonB: a6 a a5
+05-11-2023 23:07:06 - caballoN: b0 a c2
+05-11-2023 23:07:08 - peonB: a5 a a4
+05-11-2023 23:07:10 - caballoN: c2 a b4
+05-11-2023 23:07:11 - peonB: a4 a a3
+05-11-2023 23:07:13 - caballoN: b4 a c6 (captura peonB)
+05-11-2023 23:07:16 - peonB: a3 a a2
+05-11-2023 23:07:19 - caballoN: c6 a e7 (captura reyB)

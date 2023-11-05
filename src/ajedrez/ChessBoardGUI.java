@@ -27,8 +27,8 @@ public class ChessBoardGUI {
     private ButtonGroup grupoColores;  // Grupo de botones para seleccionar el color del tablero
     private JRadioButton blancoButton;  // Botón para seleccionar el color blanco del tablero
     private JRadioButton grisButton;  // Botón para seleccionar el color gris del tablero
-
-
+    private boolean partidaFinalizada; // Variable para indicar si la partida ha finalizado
+    
     // Constructor de la clase ChessBoardGUI que inicializa la interfaz gráfica del tablero de ajedrez
     public ChessBoardGUI() {
         // Crear un nuevo JFrame con el título "Tablero de Ajedrez"
@@ -73,8 +73,8 @@ public class ChessBoardGUI {
                 cambiarColorTablero(Color.GRAY, Color.DARK_GRAY);
             }
         });
-
-        // Crear un panel de opciones para seleccionar el color del tablero
+        
+        
         JPanel panelOpciones = new JPanel();
         panelOpciones.add(new JLabel("Color del tablero: "));
         panelOpciones.add(blancoButton);
@@ -88,7 +88,31 @@ public class ChessBoardGUI {
         // Actualizar el label del turno para mostrar el turno inicial
         actualizarLabelTurno(); 
     }
+    
+ // Método para bloquear los movimientos y mostrar un mensaje de fin de partida
+    public void bloquearMovimientos(String mensaje) {
+        // Muestra un mensaje informando del final de la partida
+        JOptionPane.showMessageDialog(marco, mensaje, "Fin de la Partida", JOptionPane.INFORMATION_MESSAGE);
+        // Bloquea cualquier movimiento deshabilitando el MouseListener de las casillas
+        for (Component componente : panelTablero.getComponents()) {
+            if (componente instanceof JPanel) {
+                JPanel casilla = (JPanel) componente;
+                casilla.removeMouseListener(casilla.getMouseListeners()[0]);
+            }
+        }
+    }
+    
+    public String obtenerNombrePiezaDesdeCasilla(JPanel casilla) {
+        // Verifica si la casilla tiene una pieza
+        if (posicionesPiezas.containsKey(casilla)) {
+            return posicionesPiezas.get(casilla);
+        }
+        return null; // Retorna null si la casilla está vacía
+    }
 
+    public void mostrarMensajeFinDePartida(String ganador) {
+        JOptionPane.showMessageDialog(null, "¡Partida finalizada! Las " + ganador + " ganan.", "Fin de la partida", JOptionPane.INFORMATION_MESSAGE);
+    }  
        
     // Método para cambiar el color del tablero de ajedrez según los colores especificados
     private void cambiarColorTablero(Color colorCasillasBlancas, Color colorCasillasNegras) {
@@ -271,10 +295,26 @@ public class ChessBoardGUI {
                     casillaSeleccionada = null;
                     JOptionPane.showMessageDialog(null, "Movimiento no válido", "Error", JOptionPane.ERROR_MESSAGE);
                 }
-            }
+            }         
+        }
+    }
+    
+ // Método para verificar si la partida ha finalizado (cuando el rey es capturado)
+    public void verificarFinDePartida(String PiezaCapturada) {
+        // Obtén el nombre de la pieza en la casilla de destino (si hay alguna)
+
+        // Verifica si la pieza capturada es un rey
+        if (PiezaCapturada != null && PiezaCapturada.startsWith("rey")) {
+            // La partida ha finalizado, muestra un mensaje y marca la partida como finalizada
+            JOptionPane.showMessageDialog(null, "¡Partida finalizada! El rey ha sido capturado.", "Fin de la Partida", JOptionPane.INFORMATION_MESSAGE);
+            partidaFinalizada = true;
         }
     }
 
+    // Método para obtener el estado de la partida (si ha finalizado o no)
+    public boolean isPartidaFinalizada() {
+        return partidaFinalizada;
+    }
 
     // Método para mover una pieza desde una casilla de origen hasta una casilla de destino
     private void moverPieza(JPanel desdeCasilla, JPanel aCasilla) {
@@ -345,8 +385,9 @@ public class ChessBoardGUI {
         
         // Cambia el turno al finalizar un movimiento válido
         cambiarTurno();
+        // Verifica si la partida ha llegado a su fin
+        verificarFinDePartida(piezaCapturada);
     }
-
 
     // Método para cambiar el turno del jugador
     private void cambiarTurno() {
@@ -363,9 +404,8 @@ public class ChessBoardGUI {
         }
     }
 
-
     // Método para obtener el nombre de una casilla en formato de notación algebráica (por ejemplo, "a1", "e5")
-    private String obtenerNombreCasilla(JPanel casilla) {
+    String obtenerNombreCasilla(JPanel casilla) {
         // Obtiene el índice de la casilla en el panelTablero
         int indiceCasilla = panelTablero.getComponentZOrder(casilla);
         // Calcula la columna de la casilla usando el índice y el tamaño del tablero
@@ -377,7 +417,6 @@ public class ChessBoardGUI {
         // Combina la letra de la columna y el número de fila para formar el nombre de la casilla
         return "" + letraColumna + fila;
     }
-
 
     // Método para verificar la validez de un movimiento desde una casilla hasta otra
     private boolean esMovimientoValido(JPanel desdeCasilla, JPanel aCasilla) {
@@ -511,7 +550,7 @@ public class ChessBoardGUI {
 
 
     // Método para obtener la casilla en la posición especificada por fila y columna en el tablero
-    private JPanel obtenerCasilla(int fila, int columna) {
+    public JPanel obtenerCasilla(int fila, int columna) {
         // Obtiene todos los componentes (casillas) del panel del tablero
         Component[] componentes = panelTablero.getComponents();
         
@@ -521,5 +560,5 @@ public class ChessBoardGUI {
         // Retorna la casilla (JPanel) en la posición determinada por el índice calculado
         return (JPanel) componentes[indiceCasilla];
     }
-
+   
 }
