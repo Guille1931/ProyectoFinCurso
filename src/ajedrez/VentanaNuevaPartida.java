@@ -1,10 +1,12 @@
 package ajedrez;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 public class VentanaNuevaPartida extends JFrame {
     /**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -25,7 +27,7 @@ public class VentanaNuevaPartida extends JFrame {
         }
 
         // Cierra la aplicación cuando se cierra la ventana
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         // Establece el tamaño de la ventana
         frame.setSize(300, 200);
         // Centra la ventana en la pantalla

@@ -1,15 +1,23 @@
 package navegadorWeb;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JEditorPane;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 
 public class InterfazConNavegador {
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Interfaz con Navegador Web y Base de Datos");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
         // Panel superior para el campo de búsqueda y botones
