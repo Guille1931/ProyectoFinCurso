@@ -54,10 +54,52 @@ public class ChessBoardGUI {
     private JPanel panelOpciones;
     private JButton reiniciarButton;
     private List<String> movimientosGuardados = new ArrayList<>();
-
+    private JLabel etiquetaNombreJugador1;
+    private JLabel etiquetaNombreJugador2;
+    private JLabel etiquetaCronometro ;
+    private Timer timer;
+    private int segundosTranscurridos;
+    private JPanel panelOpcionesYCronometro;
+    
     // Constructor de la clase ChessBoardGUI que inicializa la interfaz gráfica del tablero de ajedrez
     public ChessBoardGUI() {   	
+    	// Crear un cuadro de diálogo para solicitar el nombre del jugador 1
+        String nombreJugador1 = JOptionPane.showInputDialog(null, "Ingrese nombre del Jugador con Blancas:", "Juega con Blancas", JOptionPane.PLAIN_MESSAGE);
 
+        // Crear un cuadro de diálogo para solicitar el nombre del jugador 2
+        String nombreJugador2 = JOptionPane.showInputDialog(null, "Ingrese nombre del Jugador con Negras:", "Juega con Negras", JOptionPane.PLAIN_MESSAGE);
+
+        // Verificar si se ingresaron nombres válidos, si no, establecer nombres predeterminados
+        if (nombreJugador1 == null || nombreJugador1.trim().isEmpty()) {
+            nombreJugador1 = "Jugador Blancas";
+        }
+        if (nombreJugador2 == null || nombreJugador2.trim().isEmpty()) {
+            nombreJugador2 = "Jugador Negras";
+        }
+       
+     // Crear las etiquetas con los nombres de los jugadores
+        etiquetaNombreJugador1 = new JLabel(nombreJugador1);
+        etiquetaNombreJugador2 = new JLabel(nombreJugador2);
+
+        // Establecer el ancho fijo y dejar que la altura se ajuste automáticamente
+        etiquetaNombreJugador1.setPreferredSize(new Dimension(200, etiquetaNombreJugador1.getPreferredSize().height));
+        etiquetaNombreJugador2.setPreferredSize(new Dimension(200, etiquetaNombreJugador2.getPreferredSize().height));
+
+        // Establecer el texto para que esté centrado horizontal y verticalmente
+        etiquetaNombreJugador1.setHorizontalAlignment(SwingConstants.CENTER);
+        etiquetaNombreJugador1.setVerticalAlignment(SwingConstants.CENTER);
+        etiquetaNombreJugador2.setHorizontalAlignment(SwingConstants.CENTER);
+        etiquetaNombreJugador2.setVerticalAlignment(SwingConstants.CENTER);
+
+        // Establecer el tamaño de fuente de las etiquetas
+        etiquetaNombreJugador1.setFont(new Font("Arial", Font.PLAIN, 22));
+        etiquetaNombreJugador2.setFont(new Font("Arial", Font.PLAIN, 22));
+
+        // Crear un panel para contener las etiquetas de los nombres de los jugadores
+        panelOpciones = new JPanel(new GridLayout(2, 1));
+        panelOpciones.add(etiquetaNombreJugador1);
+        panelOpciones.add(etiquetaNombreJugador2);  
+     
     	// Crear un nuevo JFrame con el título "Tablero de Ajedrez"
         marco = new JFrame("Tablero de Ajedrez");
         // Establecer la operación de cierre del JFrame al cerrar la ventana
@@ -145,7 +187,7 @@ public class ChessBoardGUI {
             }
         });          
         
-     // Crear un botón para reiniciar la aplicación
+        // Crear un botón para reiniciar la aplicación
         reiniciarButton = new JButton("Reiniciar partida");
         reiniciarButton.setEnabled(false); // Inicializar como deshabilitado
         
@@ -155,11 +197,40 @@ public class ChessBoardGUI {
                 // Invocar el método para reiniciar la aplicación
                 reiniciarAplicacion();
             }
-        });
+        });      
+        etiquetaCronometro = new JLabel();
+        etiquetaCronometro.setHorizontalAlignment(SwingConstants.CENTER); // Alinear el texto al centro horizontalmente
+        etiquetaCronometro.setVerticalAlignment(SwingConstants.CENTER); // Alinear el texto al centro verticalmente
+        etiquetaCronometro.setFont(new Font("Arial", Font.PLAIN, 16)); // Establecer el tamaño de fuente
+        etiquetaCronometro.setForeground(Color.WHITE); // Establecer el color del texto a blanco
+        etiquetaCronometro.setBackground(Color.BLACK); // Establecer el color de fondo a negro
+        etiquetaCronometro.setOpaque(true); // Permitir que el fondo del JLabel sea visible
+        
+        // Inicializar el temporizador para actualizar el cronómetro cada segundo
+        timer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                segundosTranscurridos++;
+                actualizarCronometro();
+            }
+        });                   
+        timer.start(); // Iniciar el temporizador
+        
+
+        // Crear un panel para contener las etiquetas de opciones y el cronómetro
+        panelOpcionesYCronometro = new JPanel();
+        panelOpcionesYCronometro.setLayout(new BoxLayout(panelOpcionesYCronometro, BoxLayout.Y_AXIS)); // Alinear en dirección vertical
+
+        // Agregar las etiquetas al panel
+        panelOpcionesYCronometro.add(etiquetaCronometro);
+        panelOpcionesYCronometro.add(panelOpciones);
+
+        // Agregar el panel de opciones y el cronómetro en el lado oeste del marco
+        marco.add(panelOpcionesYCronometro, BorderLayout.WEST);
 
         JPanel panel = new JPanel();
         panel.add(reiniciarButton);
-
+       
         marco.add(panel);
         marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         marco.pack();
@@ -169,9 +240,9 @@ public class ChessBoardGUI {
         panelOpciones.add(new JLabel("Color del tablero: "));
         panelOpciones.add(blancoButton);
         panelOpciones.add(grisButton);
+       
         // Agregar el panel de opciones en la parte superior del JFrame usando BorderLayout
-        marco.add(panelOpciones, BorderLayout.NORTH);
-     
+        marco.add(panelOpciones, BorderLayout.NORTH);     
 
         // Inicializar el tablero y configurar la interfaz gráfica
         inicializarTablero();
@@ -192,7 +263,7 @@ public class ChessBoardGUI {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }   
 
     public String obtenerNombrePiezaDesdeCasilla(JPanel casilla) {
         // Verifica si la casilla tiene una pieza
@@ -201,7 +272,15 @@ public class ChessBoardGUI {
         }
         return null; // Retorna null si la casilla está vacía
     }
-
+    
+    private void actualizarCronometro() {
+        int horas = segundosTranscurridos / 3600;
+        int minutos = (segundosTranscurridos % 3600) / 60;
+        int segundos = segundosTranscurridos % 60;
+        String tiempoFormateado = String.format("%02d:%02d:%02d", horas, minutos, segundos);
+        etiquetaCronometro.setText(tiempoFormateado);
+    }
+    
     // Método para cambiar el color del tablero de ajedrez según los colores especificados
     private void cambiarColorTablero(Color colorCasillasBlancas, Color colorCasillasNegras) {
         // Iterar a través de todos los componentes (casillas) en el panel del tablero
@@ -392,14 +471,16 @@ public class ChessBoardGUI {
             JOptionPane.setDefaultLocale(spanishLocale);
             // Definir los textos personalizados para los botones
             Object[] opciones = {"Sí", "No"};
-         // La partida ha finalizado, muestra un mensaje y marca la partida como finalizada
-            int respuesta = JOptionPane.showOptionDialog(null, "¡Ganador!" ++ (turnoBlancas ? "Blancas" : "Negras") "- \n  Quieres volver a jugar?.", "Reiniciar?",
+         // Detener el temporizador
+            timer.stop();
+            // La partida ha finalizado, muestra un mensaje y marca la partida como finalizada
+            int respuesta = JOptionPane.showOptionDialog(null, "¡Ganador!" + (turnoBlancas ? "Negras" : "Blancas") , "Quieres volver a jugar?",
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
 
             // Comprobar la respuesta del usuario
             if (respuesta == JOptionPane.YES_OPTION) {
                 reiniciarButton.setEnabled(true);
-                String mensajeFinal = "GANADOR: - " + (turnoBlancas ? "Blancas" : "Negras");
+                String mensajeFinal = "GANADOR: - " + (turnoBlancas ? "Negras" : "Blancas");
                 
                 listaMovimientosModelo.addElement(mensajeFinal);// Agregar el mensaje "PARTIDA FINALIZADA" a la lista de movimientos guardados
                 movimientosGuardados.add(mensajeFinal);
@@ -410,7 +491,7 @@ public class ChessBoardGUI {
                 return;
             } else {
                 marco.dispose();
-                String mensajeFinal = "GANADOR: - " + (turnoBlancas ? "Blancas" : "Negras");
+                String mensajeFinal = "GANADOR: - " + (turnoBlancas ? "Negras" : "Blancas");
                 // Agregar el mensaje "PARTIDA FINALIZADA" a la lista de movimientos guardados
                 movimientosGuardados.add(mensajeFinal);
                 // Registra el movimiento en el archivo de texto

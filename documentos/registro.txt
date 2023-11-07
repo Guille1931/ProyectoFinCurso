@@ -579,3 +579,95 @@
 07-11-2023 14:46:54 - caballoN: b4 a c6 (captura peonB)
 07-11-2023 14:46:57 - caballoB: c1 a e0 (captura reyN)
 07-11-2023 14:47:00 - GANADOR: - Negras
+07-11-2023 21:31:24 - peonB: a6 a a5
+07-11-2023 21:32:03 - peonN: a1 a a2
+07-11-2023 21:51:10 - peonB: a6 a a5
+07-11-2023 21:51:15 - peonN: a1 a a2
+07-11-2023 21:51:22 - caballoB: b7 a c5
+07-11-2023 21:51:25 - caballoN: b0 a c2
+07-11-2023 21:51:27 - caballoB: c5 a b3
+07-11-2023 21:51:29 - caballoN: c2 a b4
+07-11-2023 21:51:32 - caballoB: b3 a c1 (captura peonN)
+07-11-2023 21:51:35 - caballoN: b4 a c6 (captura peonB)
+07-11-2023 21:51:38 - caballoB: c1 a e0 (captura reyN)
+07-11-2023 21:51:50 - GANADOR: - Negras
+07-11-2023 22:00:00 - caballoB: b7 a a5
+07-11-2023 22:00:03 - caballoN: b0 a c2
+07-11-2023 22:00:06 - caballoB: a5 a b3
+07-11-2023 22:00:08 - caballoN: c2 a b4
+07-11-2023 22:00:10 - caballoB: b3 a c1 (captura peonN)
+07-11-2023 22:00:13 - caballoN: b4 a c6 (captura peonB)
+07-11-2023 22:00:16 - caballoB: c1 a e0 (captura reyN)
+07-11-2023 22:00:26 - GANADOR: - Blancas
+07-11-2023 22:59:40 - peonB: a6 a a5
+07-11-2023 23:01:07 - peonB: a6 a a5
+07-11-2023 23:04:48 - peonB: a6 a a5
+07-11-2023 23:04:51 - caballoN: b0 a c2
+07-11-2023 23:04:53 - peonB: a5 a a4
+07-11-2023 23:04:56 - caballoN: c2 a b4
+07-11-2023 23:04:57 - peonB: a4 a a3
+07-11-2023 23:04:59 - caballoN: b4 a c6 (captura peonB)
+07-11-2023 23:05:01 - peonB: a3 a a2
+07-11-2023 23:05:05 - caballoN: c6 a e7 (captura reyB)
+07-11-2023 23:05:13 - GANADOR: - Negras
+07-11-2023 23:19:55 - caballoB: b7 a c5
+07-11-2023 23:20:00 - caballoN: b0 a c2
+07-11-2023 23:20:02 - caballoB: c5 a b3
+07-11-2023 23:20:05 - caballoN: c2 a b4
+07-11-2023 23:20:06 - caballoB: b3 a c1 (captura peonN)
+07-11-2023 23:20:09 - caballoN: b4 a c6 (captura peonB)
+07-11-2023 23:20:14 - caballoB: c1 a e0 (captura reyN)
+07-11-2023 23:20:28 - GANADOR: - Blancas
+07-11-2023 23:22:06 - peonB: e6 a e5
+07-11-2023 23:22:11 - peonN: e1 a e2
+07-11-2023 23:22:16 - caballoB: b7 a a5
+07-11-2023 23:22:19 - reinaN: d0 a f2
+07-11-2023 23:22:30 - peonB: g6 a g5
+07-11-2023 23:22:34 - peonN: g1 a g2
+07-11-2023 23:22:44 - alfilB: f7 a h5
+07-11-2023 23:22:51 - caballoN: b0 a c2
+07-11-2023 23:22:56 - caballoB: a5 a b3
+07-11-2023 23:23:01 - peonN: a1 a a2
+07-11-2023 23:23:07 - caballoB: b3 a d4
+07-11-2023 23:23:19 - alfilN: f0 a c3
+07-11-2023 23:23:28 - caballoB: d4 a f5
+07-11-2023 23:24:09 - caballoN: g0 a h2
+07-11-2023 23:24:17 - peonB: c6 a c5
+07-11-2023 23:24:32 - peonN: e2 a e3
+07-11-2023 23:24:47 - reinaB: d7 a a4
+07-11-2023 23:25:40 - caballoN: h2 a f3
+07-11-2023 23:25:43 - alfilB: h5 a f3 (captura caballoN)
+07-11-2023 23:25:44 - reinaN: f2 a f3 (captura alfilB)
+07-11-2023 23:26:07 - peonB: g5 a g4
+07-11-2023 23:26:20 - reinaN: f3 a e2
+07-11-2023 23:26:31 - caballoB: g7 a h5
+07-11-2023 23:26:57 - peonN: b1 a b2
+07-11-2023 23:27:05 - caballoB: h5 a g3
+07-11-2023 23:27:07 - peonN: b2 a b3
+07-11-2023 23:27:28 - reinaB: a4 a e4
+07-11-2023 23:27:48 - peonN: b3 a b4
+07-11-2023 23:27:51 - peonB: c5 a b4 (captura peonN)
+07-11-2023 23:27:54 - alfilN: c3 a b4 (captura peonB)
+07-11-2023 23:28:25 - peonB: b6 a b5
+07-11-2023 23:28:53 - alfilN: b4 a a3
+07-11-2023 23:29:27 - alfilB: c7 a b6
+07-11-2023 23:30:09 - peonN: f1 a f2
+07-11-2023 23:30:25 - caballoB: g3 a e2 (captura reinaN)
+07-11-2023 23:30:32 - peonN: d1 a e2 (captura caballoB)
+07-11-2023 23:30:44 - reinaB: e4 a c2 (captura caballoN)
+07-11-2023 23:30:51 - reyN: e0 a f0
+07-11-2023 23:30:54 - reinaB: c2 a a0 (captura torreN)
+07-11-2023 23:31:04 - reyN: f0 a g1
+07-11-2023 23:31:16 - caballoB: f5 a h4
+07-11-2023 23:31:22 - peonN: g2 a g3
+07-11-2023 23:32:09 - torreB: a7 a c7
+07-11-2023 23:32:43 - alfilN: c0 a d1
+07-11-2023 23:32:56 - reinaB: a0 a e4
+07-11-2023 23:33:02 - peonN: f2 a f3
+07-11-2023 23:33:07 - caballoB: h4 a f3 (captura peonN)
+07-11-2023 23:33:10 - peonN: e2 a f3 (captura caballoB)
+07-11-2023 23:33:11 - reinaB: e4 a f3 (captura peonN)
+07-11-2023 23:33:22 - alfilN: d1 a f3 (captura reinaB)
+07-11-2023 23:33:32 - peonB: d6 a d5
+07-11-2023 23:33:35 - alfilN: a3 a e7 (captura reyB)
+07-11-2023 23:33:43 - GANADOR: - Negras
