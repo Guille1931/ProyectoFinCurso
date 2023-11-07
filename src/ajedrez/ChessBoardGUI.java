@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -14,7 +15,9 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -31,6 +34,7 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
+import javax.swing.*;
 
 public class ChessBoardGUI {
 
@@ -47,12 +51,14 @@ public class ChessBoardGUI {
     private ButtonGroup grupoColores;  // Grupo de botones para seleccionar el color del tablero
     private JRadioButton blancoButton;  // Botón para seleccionar el color blanco del tablero
     private JRadioButton grisButton;  // Botón para seleccionar el color gris del tablero
-    private JButton botonReinicio;
-
+    private JPanel panelOpciones;
+    private JButton reiniciarButton;
+    private List<String> movimientosGuardados = new ArrayList<>();
 
     // Constructor de la clase ChessBoardGUI que inicializa la interfaz gráfica del tablero de ajedrez
-    public ChessBoardGUI() {
-        // Crear un nuevo JFrame con el título "Tablero de Ajedrez"
+    public ChessBoardGUI() {   	
+
+    	// Crear un nuevo JFrame con el título "Tablero de Ajedrez"
         marco = new JFrame("Tablero de Ajedrez");
         // Establecer la operación de cierre del JFrame al cerrar la ventana
         marco.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -61,10 +67,52 @@ public class ChessBoardGUI {
 
         // Crear un nuevo panel con un GridLayout para representar el tablero de ajedrez
         panelTablero = new JPanel(new GridLayout(TAMANIO_TABLERO, TAMANIO_TABLERO));
-        // Crear un modelo para la lista de movimientos y asociarlo con una JList
+        
+     // Inicializar el modelo de la lista de movimientos y añadir encabezados
         listaMovimientosModelo = new DefaultListModel<>();
-        listaMovimientos = new JList<>(listaMovimientosModelo);
+        JLabel encabezado1 = new JLabel("<html><center><font color='green'><b>  Negras</b></font></center></html>");
+        JLabel encabezado = new JLabel("<html><center><font color='red'><b>     HISTORIAL MOVIMIENTOS</b></font></center></html>");
+        JLabel encabezado2 = new JLabel("<html><center><font color='blue'><b>  Blancas</b></font></center></html>");
 
+        listaMovimientosModelo.addElement(encabezado1.getText());
+        listaMovimientosModelo.addElement(encabezado.getText());
+        listaMovimientosModelo.addElement(encabezado2.getText());
+        
+        // Crear un JList personalizado para mostrar los encabezados en dos columnas
+        JList<String> customJList = new JList<>(listaMovimientosModelo);
+        customJList.setLayoutOrientation(JList.HORIZONTAL_WRAP); // Muestra elementos en varias filas y columnas
+
+        // Establecer el cellRenderer para personalizar la apariencia de los elementos en la lista
+        customJList.setCellRenderer(new DefaultListCellRenderer() {
+            /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			@Override
+            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+                JLabel label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+                label.setHorizontalAlignment(SwingConstants.CENTER);
+                label.setForeground(Color.RED); // Establece el color del texto a rojo
+                label.setFont(label.getFont().deriveFont(Font.BOLD)); // Establece el texto en negrita
+                return label;
+            }
+        });
+
+        // Establecer el tamaño y agregar la lista de movimientos al JScrollPane
+        JScrollPane scrollPane = new JScrollPane(customJList);
+        scrollPane.setPreferredSize(new Dimension(100, 400)); // Establece el ancho y alto deseados
+
+        // Agregar el JScrollPane al JFrame en el centro
+        marco.add(scrollPane, BorderLayout.CENTER);
+
+        // Establecer la celda renderer para personalizar la apariencia de los elementos en la lista
+        listaMovimientos = new JList<>(listaMovimientosModelo);
+     
+        // Configurar el tamaño de la lista de movimientos
+        listaMovimientos.setVisibleRowCount(10); // Establece el número de filas visibles
+        listaMovimientos.setFixedCellWidth(200); // Establece el ancho fijo de las celdas
+        
         // Inicializar el mapa que almacena las posiciones de las piezas en el tablero
         posicionesPiezas = new HashMap<>();
 
@@ -95,64 +143,55 @@ public class ChessBoardGUI {
 			public void actionPerformed(ActionEvent e) {
                 cambiarColorTablero(Color.GRAY, Color.DARK_GRAY);
             }
-        });
-
-        // Crear un botón de reinicio con el texto "Reiniciar Partida"
-        botonReinicio = new JButton("Reiniciar Partida");
-
-        // Agregar un ActionListener al botón de reinicio
-        botonReinicio.addActionListener(new ActionListener() {
+        });          
+        
+     // Crear un botón para reiniciar la aplicación
+        reiniciarButton = new JButton("Reiniciar partida");
+        reiniciarButton.setEnabled(false); // Inicializar como deshabilitado
+        
+        reiniciarButton.addActionListener(new ActionListener() {
             @Override
-			public void actionPerformed(ActionEvent e) {
-                reiniciarPartida(); // Llama al método para reiniciar la partida
+            public void actionPerformed(ActionEvent e) {
+                // Invocar el método para reiniciar la aplicación
+                reiniciarAplicacion();
             }
         });
 
-        JPanel panelOpciones = new JPanel();
+        JPanel panel = new JPanel();
+        panel.add(reiniciarButton);
+
+        marco.add(panel);
+        marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        marco.pack();
+        marco.setVisible(true);    
+
+        panelOpciones = new JPanel();
         panelOpciones.add(new JLabel("Color del tablero: "));
         panelOpciones.add(blancoButton);
         panelOpciones.add(grisButton);
         // Agregar el panel de opciones en la parte superior del JFrame usando BorderLayout
         marco.add(panelOpciones, BorderLayout.NORTH);
-     // Agregar el botón de reinicio en el panel de opciones
-        panelOpciones.add(botonReinicio);
+     
 
         // Inicializar el tablero y configurar la interfaz gráfica
         inicializarTablero();
         configurarInterfaz();
         // Actualizar el label del turno para mostrar el turno inicial
         actualizarLabelTurno();
-    }
+    }   
 
-    private void reiniciarPartida() {
-    	// Limpiar el mapa de posiciones de las piezas
-        posicionesPiezas.clear();
+    public static void reiniciarAplicacion() {
+        try {
+            String comandoJava = System.getProperty("java.home") + "/bin/java";
+            String classpath = System.getProperty("java.class.path");
+            String nombreClase = "ajedrez.Main"; // Nombre completo de la clase principal
 
-        // Eliminar las piezas actuales del tablero y agregar nuevos MouseListeners
-        for (Component componente : panelTablero.getComponents()) {
-            if (componente instanceof JPanel) {
-                JPanel casillaClickeada = (JPanel) componente;
-                casillaClickeada.removeAll();
-                casillaClickeada.addMouseListener(new EscuchaClicPieza()); // Agregar MouseListener
-
-            }
+            ProcessBuilder constructorProceso = new ProcessBuilder(comandoJava, "-cp", classpath, nombreClase);
+            constructorProceso.start();
+            System.exit(0); // Termina el proceso actual
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        // Colocar las piezas iniciales en el tablero nuevamente
-        colocarPiezasIniciales();
-
-        // Restaurar el turno de las Blancas y actualizar la etiqueta de turno
-        turnoBlancas = true;
-        actualizarLabelTurno();
-
-        // Reiniciar la lista de movimientos
-        listaMovimientosModelo.clear();
-
-        // Restaurar el color del tablero a la configuración predeterminada (Blanco y Gris)
-        blancoButton.setSelected(true);
-        cambiarColorTablero(Color.WHITE, Color.LIGHT_GRAY);
-
-
     }
 
     public String obtenerNombrePiezaDesdeCasilla(JPanel casilla) {
@@ -344,28 +383,43 @@ public class ChessBoardGUI {
 
     // Método para verificar si la partida ha finalizado (cuando el rey es capturado)
     public void verificarFinDePartida(String PiezaCapturada) {
-        // Obtén el nombre de la pieza en la casilla de destino (si hay alguna)
-
+       
         // Verifica si la pieza capturada es un rey
         if (PiezaCapturada != null && PiezaCapturada.startsWith("rey")) {
         	// Establecer el idioma deseado (por ejemplo, español)
-            Locale.setDefault(new Locale("es", "ES"));
-
+        	Locale spanishLocale = Locale.forLanguageTag("es-ES");
+        	// Configurar el idioma para JOptionPane
+            JOptionPane.setDefaultLocale(spanishLocale);
             // Definir los textos personalizados para los botones
             Object[] opciones = {"Sí", "No"};
-
-        	// La partida ha finalizado, muestra un mensaje y marca la partida como finalizada
-            int respuesta = JOptionPane.showOptionDialog(null, "¡Partida finalizada! El rey ha sido capturado.", "Quieres volver a jugar?",
+         // La partida ha finalizado, muestra un mensaje y marca la partida como finalizada
+            int respuesta = JOptionPane.showOptionDialog(null, "¡Ganador!" ++ (turnoBlancas ? "Blancas" : "Negras") "- \n  Quieres volver a jugar?.", "Reiniciar?",
                     JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
-        	// Comprobar la respuesta del usuario
+
+            // Comprobar la respuesta del usuario
             if (respuesta == JOptionPane.YES_OPTION) {
-            	inicializarTablero();
-            	return;
+                reiniciarButton.setEnabled(true);
+                String mensajeFinal = "GANADOR: - " + (turnoBlancas ? "Blancas" : "Negras");
+                
+                listaMovimientosModelo.addElement(mensajeFinal);// Agregar el mensaje "PARTIDA FINALIZADA" a la lista de movimientos guardados
+                movimientosGuardados.add(mensajeFinal);
+                // Registra el movimiento en el archivo de texto
+                Registro.registrarMovimiento(mensajeFinal);
+                // Guarda el movimiento en la base de datos
+                BaseDeDatos.guardarMovimientoEnBaseDeDatos(mensajeFinal);
+                return;
             } else {
-            	marco.dispose();
+                marco.dispose();
+                String mensajeFinal = "GANADOR: - " + (turnoBlancas ? "Blancas" : "Negras");
+                // Agregar el mensaje "PARTIDA FINALIZADA" a la lista de movimientos guardados
+                movimientosGuardados.add(mensajeFinal);
+                // Registra el movimiento en el archivo de texto
+                Registro.registrarMovimiento(mensajeFinal);
+                // Guarda el movimiento en la base de datos
+                BaseDeDatos.guardarMovimientoEnBaseDeDatos(mensajeFinal);
             }
         }
-      }
+    }
 
     // Método para mover una pieza desde una casilla de origen hasta una casilla de destino
     private void moverPieza(JPanel desdeCasilla, JPanel aCasilla) {

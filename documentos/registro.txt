@@ -371,3 +371,211 @@
 06-11-2023 14:51:33 - caballoB: b3 a c1 (captura peonN)
 06-11-2023 14:51:36 - caballoN: b4 a c6 (captura peonB)
 06-11-2023 14:51:40 - caballoB: c1 a e0 (captura reyN)
+07-11-2023 09:21:20 - peonB: a6 a a5
+07-11-2023 09:21:27 - peonN: a1 a a2
+07-11-2023 09:21:31 - caballoB: b7 a c5
+07-11-2023 09:21:34 - caballoN: b0 a c2
+07-11-2023 09:21:39 - caballoB: c5 a b3
+07-11-2023 09:21:41 - caballoN: c2 a b4
+07-11-2023 09:21:44 - caballoB: b3 a c1 (captura peonN)
+07-11-2023 09:21:48 - caballoN: b4 a c6 (captura peonB)
+07-11-2023 09:21:56 - caballoB: c1 a e0 (captura reyN)
+07-11-2023 09:52:02 - peonB: a6 a a5
+07-11-2023 09:52:13 - peonN: a1 a a2
+07-11-2023 09:52:17 - caballoB: b7 a c5
+07-11-2023 09:52:21 - caballoN: b0 a c2
+07-11-2023 09:52:24 - caballoB: c5 a b3
+07-11-2023 09:52:38 - caballoN: c2 a b4
+07-11-2023 09:52:42 - caballoB: b3 a c1 (captura peonN)
+07-11-2023 09:52:45 - caballoN: b4 a c6 (captura peonB)
+07-11-2023 09:52:48 - caballoB: c1 a e0 (captura reyN)
+07-11-2023 10:12:44 - peonB: a6 a a5
+07-11-2023 10:12:47 - peonN: a1 a a2
+07-11-2023 10:12:51 - peonB: h6 a h5
+07-11-2023 10:20:08 - peonB: a6 a a5
+07-11-2023 10:20:13 - caballoN: b0 a c2
+07-11-2023 10:20:18 - peonB: a5 a a4
+07-11-2023 10:20:20 - caballoN: c2 a b4
+07-11-2023 10:20:22 - peonB: a4 a a3
+07-11-2023 10:20:24 - caballoN: b4 a c6 (captura peonB)
+07-11-2023 10:20:26 - peonB: a3 a a2
+07-11-2023 10:20:29 - caballoN: c6 a e7 (captura reyB)
+07-11-2023 10:27:32 - caballoB: b7 a c5
+07-11-2023 10:27:34 - caballoN: b0 a c2
+07-11-2023 10:27:36 - caballoB: c5 a b3
+07-11-2023 10:27:38 - caballoN: c2 a b4
+07-11-2023 10:27:40 - caballoB: b3 a c1 (captura peonN)
+07-11-2023 10:27:43 - caballoN: b4 a c6 (captura peonB)
+07-11-2023 10:27:46 - caballoB: c1 a e0 (captura reyN)
+07-11-2023 10:37:13 - caballoB: b7 a c5
+07-11-2023 10:37:17 - caballoN: b0 a c2
+07-11-2023 10:37:19 - caballoB: c5 a b3
+07-11-2023 10:37:22 - caballoN: c2 a d4
+07-11-2023 10:37:24 - caballoB: b3 a c1 (captura peonN)
+07-11-2023 10:37:27 - caballoN: d4 a b5
+07-11-2023 10:37:31 - caballoB: c1 a e0 (captura reyN)
+07-11-2023 10:38:32 - peonB: a6 a a5
+07-11-2023 10:38:36 - caballoN: b0 a c2
+07-11-2023 10:38:40 - peonB: a5 a a4
+07-11-2023 10:38:42 - caballoN: c2 a b4
+07-11-2023 10:38:44 - peonB: a4 a a3
+07-11-2023 10:38:47 - caballoN: b4 a c6 (captura peonB)
+07-11-2023 10:38:48 - peonB: a3 a a2
+07-11-2023 10:38:52 - caballoN: c6 a e7 (captura reyB)
+07-11-2023 10:39:08 - caballoB: b7 a c5
+07-11-2023 10:39:11 - caballoN: b0 a c2
+07-11-2023 10:39:18 - caballoB: c5 a a4
+07-11-2023 10:39:20 - caballoN: c2 a b4
+07-11-2023 10:39:22 - caballoB: a4 a c3
+07-11-2023 10:39:24 - caballoN: b4 a c6 (captura peonB)
+07-11-2023 10:39:27 - caballoB: c3 a e4
+07-11-2023 10:39:29 - caballoN: c6 a e7 (captura reyB)
+07-11-2023 10:40:12 - peonB: g6 a g5
+07-11-2023 10:40:24 - peonN: e1 a e2
+07-11-2023 10:40:27 - peonB: g5 a g4
+07-11-2023 10:40:38 - peonN: h1 a h2
+07-11-2023 10:40:40 - peonB: h6 a h5
+07-11-2023 10:41:07 - peonN: d1 a d2
+07-11-2023 10:41:11 - peonB: d6 a d5
+07-11-2023 10:41:22 - peonN: f1 a f2
+07-11-2023 10:41:43 - caballoB: g7 a f5
+07-11-2023 10:41:51 - peonN: e2 a e3
+07-11-2023 10:42:10 - caballoB: f5 a d4
+07-11-2023 10:42:16 - peonN: d2 a d3
+07-11-2023 10:42:24 - peonB: e6 a e5
+07-11-2023 10:42:31 - peonN: f2 a f3
+07-11-2023 10:42:33 - peonB: g4 a g3
+07-11-2023 10:42:46 - peonN: a1 a a2
+07-11-2023 10:42:54 - peonB: a6 a a5
+07-11-2023 10:43:03 - peonN: b1 a b2
+07-11-2023 10:43:05 - peonB: b6 a b5
+07-11-2023 10:43:07 - peonN: b2 a b3
+07-11-2023 10:43:09 - peonB: b5 a b4
+07-11-2023 10:43:22 - peonN: c1 a c2
+07-11-2023 10:43:24 - caballoB: b7 a c5
+07-11-2023 10:43:34 - peonN: c2 a c3
+07-11-2023 10:43:43 - peonB: b4 a c3 (captura peonN)
+07-11-2023 10:44:09 - alfilN: f0 a e1
+07-11-2023 10:44:14 - caballoB: c5 a b3 (captura peonN)
+07-11-2023 10:44:22 - peonN: a2 a b3 (captura caballoB)
+07-11-2023 10:44:33 - peonB: a5 a a4
+07-11-2023 10:44:52 - caballoN: b0 a d1
+07-11-2023 10:44:56 - peonB: c3 a c2
+07-11-2023 10:45:07 - peonN: b3 a b2
+07-11-2023 10:45:17 - peonB: f6 a f5
+07-11-2023 10:45:41 - peonN: e3 a d4 (captura caballoB)
+07-11-2023 10:45:53 - peonB: h5 a h4
+07-11-2023 10:46:01 - alfilN: e1 a b4
+07-11-2023 10:46:04 - torreB: h7 a h5
+07-11-2023 10:46:07 - alfilN: b4 a e7 (captura reyB)
+07-11-2023 11:41:02 - peonB: a6 a a5
+07-11-2023 11:42:39 - peonN: a1 a a2
+07-11-2023 11:43:11 - peonB: b6 a b5
+07-11-2023 11:44:54 - peonN: b1 a b2
+07-11-2023 12:34:20 - peonB: a6 a a5
+07-11-2023 12:34:38 - peonN: a1 a a2
+07-11-2023 12:34:42 - caballoB: b7 a c5
+07-11-2023 12:34:50 - peonN: a2 a a3
+07-11-2023 12:34:55 - caballoB: c5 a b3
+07-11-2023 12:34:57 - peonN: a3 a a4
+07-11-2023 12:35:00 - caballoB: b3 a c1 (captura peonN)
+07-11-2023 12:35:06 - caballoN: b0 a a2
+07-11-2023 12:35:11 - caballoB: c1 a e0 (captura reyN)
+07-11-2023 12:52:20 - peonB: a6 a a5
+07-11-2023 12:52:24 - peonN: a1 a a2
+07-11-2023 12:52:27 - caballoB: b7 a c5
+07-11-2023 12:52:31 - caballoN: b0 a c2
+07-11-2023 12:52:33 - caballoB: c5 a b3
+07-11-2023 12:52:37 - peonN: d1 a d2
+07-11-2023 12:52:41 - caballoB: b3 a c1 (captura peonN)
+07-11-2023 12:52:44 - alfilN: c0 a g4
+07-11-2023 12:52:48 - caballoB: c1 a e0 (captura reyN)
+07-11-2023 13:00:24 - peonB: a6 a a5
+07-11-2023 13:00:29 - peonN: a1 a a2
+07-11-2023 13:00:36 - peonB: d6 a d5
+07-11-2023 13:00:40 - caballoN: b0 a c2
+07-11-2023 13:00:43 - alfilB: c7 a f4
+07-11-2023 13:00:52 - caballoN: c2 a b4
+07-11-2023 13:01:03 - peonB: h6 a h5
+07-11-2023 13:01:10 - caballoN: b4 a c6 (captura peonB)
+07-11-2023 13:01:26 - peonB: d5 a d4
+07-11-2023 13:01:31 - caballoN: c6 a e7 (captura reyB)
+07-11-2023 13:38:18 - peonB: a6 a a5
+07-11-2023 13:39:01 - caballoN: b0 a c2
+07-11-2023 13:39:05 - peonB: a5 a a4
+07-11-2023 13:39:07 - caballoN: c2 a b4
+07-11-2023 13:39:09 - peonB: a4 a a3
+07-11-2023 13:39:11 - caballoN: b4 a c6 (captura peonB)
+07-11-2023 13:39:14 - peonB: a3 a a2
+07-11-2023 13:39:18 - caballoN: c6 a e7 (captura reyB)
+07-11-2023 13:39:33 - PARTIDA FINALIZADA: Jugador ganador 
+07-11-2023 13:44:35 - peonB: a6 a a5
+07-11-2023 13:44:49 - caballoN: b0 a c2
+07-11-2023 13:44:51 - peonB: a5 a a4
+07-11-2023 13:44:53 - caballoN: c2 a b4
+07-11-2023 13:44:56 - peonB: a4 a a3
+07-11-2023 13:45:10 - caballoN: b4 a c6 (captura peonB)
+07-11-2023 13:45:13 - peonB: a3 a a2
+07-11-2023 13:45:16 - caballoN: c6 a e7 (captura reyB)
+07-11-2023 13:45:20 - PARTIDA FINALIZADA: Jugador ganador - Blancas
+07-11-2023 13:48:23 - caballoB: b7 a c5
+07-11-2023 13:48:27 - caballoN: b0 a c2
+07-11-2023 13:48:29 - caballoB: c5 a b3
+07-11-2023 13:48:32 - caballoN: c2 a b4
+07-11-2023 13:48:34 - caballoB: b3 a c1 (captura peonN)
+07-11-2023 13:48:36 - caballoN: b4 a c6 (captura peonB)
+07-11-2023 13:48:44 - caballoB: c1 a e0 (captura reyN)
+07-11-2023 13:48:48 - PARTIDA FINALIZADA: Jugador ganador - Negras
+07-11-2023 13:58:01 - peonB: a6 a a5
+07-11-2023 13:58:08 - peonN: a1 a a2
+07-11-2023 13:58:12 - caballoB: b7 a c5
+07-11-2023 13:58:14 - peonN: b1 a b2
+07-11-2023 13:58:16 - caballoB: c5 a b3
+07-11-2023 13:58:18 - peonN: a2 a a3
+07-11-2023 13:58:20 - caballoB: b3 a c1 (captura peonN)
+07-11-2023 13:58:22 - peonN: a3 a a4
+07-11-2023 13:58:24 - caballoB: c1 a e0 (captura reyN)
+07-11-2023 13:58:28 - PARTIDA FINALIZADA: Jugador ganador - Negras
+07-11-2023 14:02:42 - peonB: a6 a a5
+07-11-2023 14:03:42 - peonB: a6 a a5
+07-11-2023 14:03:46 - peonN: a1 a a2
+07-11-2023 14:03:52 - peonB: a5 a a4
+07-11-2023 14:14:35 - peonB: a6 a a5
+07-11-2023 14:14:40 - peonN: a1 a a2
+07-11-2023 14:15:00 - peonB: a5 a a4
+07-11-2023 14:23:14 - peonB: a6 a a5
+07-11-2023 14:32:38 - peonB: a6 a a5
+07-11-2023 14:32:45 - peonN: a1 a a2
+07-11-2023 14:33:00 - peonB: a5 a a4
+07-11-2023 14:33:04 - peonN: a2 a a3
+07-11-2023 14:38:06 - peonB: a6 a a5
+07-11-2023 14:38:14 - peonN: a1 a a2
+07-11-2023 14:41:17 - peonB: a6 a a5
+07-11-2023 14:41:23 - peonN: a1 a a2
+07-11-2023 14:41:27 - peonB: a5 a a4
+07-11-2023 14:41:30 - peonN: a2 a a3
+07-11-2023 14:41:39 - caballoB: b7 a c5
+07-11-2023 14:41:42 - caballoN: b0 a c2
+07-11-2023 14:41:45 - caballoB: c5 a b3
+07-11-2023 14:41:47 - caballoN: c2 a b4
+07-11-2023 14:41:50 - caballoB: b3 a c1 (captura peonN)
+07-11-2023 14:41:52 - caballoN: b4 a c6 (captura peonB)
+07-11-2023 14:41:56 - caballoB: c1 a e0 (captura reyN)
+07-11-2023 14:42:02 - PARTIDA FINALIZADA: Jugador ganador - Negras
+07-11-2023 14:43:46 - peonB: a6 a a5
+07-11-2023 14:43:50 - caballoN: b0 a c2
+07-11-2023 14:43:53 - peonB: a5 a a4
+07-11-2023 14:43:55 - caballoN: c2 a d4
+07-11-2023 14:43:57 - peonB: a4 a a3
+07-11-2023 14:44:00 - caballoN: d4 a c6 (captura peonB)
+07-11-2023 14:44:15 - peonB: a3 a a2
+07-11-2023 14:44:19 - caballoN: c6 a e7 (captura reyB)
+07-11-2023 14:44:25 - PARTIDA FINALIZADA: Jugador ganador - Blancas
+07-11-2023 14:46:39 - caballoB: b7 a c5
+07-11-2023 14:46:43 - caballoN: b0 a c2
+07-11-2023 14:46:46 - caballoB: c5 a d3
+07-11-2023 14:46:49 - caballoN: c2 a b4
+07-11-2023 14:46:51 - caballoB: d3 a c1 (captura peonN)
+07-11-2023 14:46:54 - caballoN: b4 a c6 (captura peonB)
+07-11-2023 14:46:57 - caballoB: c1 a e0 (captura reyN)
+07-11-2023 14:47:00 - GANADOR: - Negras
