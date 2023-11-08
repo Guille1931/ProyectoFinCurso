@@ -24,5 +24,5 @@ public class Registro {
      } catch (IOException e) {
          e.printStackTrace(); // Manejo de errores en caso de problemas al escribir en el archivo.
      }
- }
+   }
 }

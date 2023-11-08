@@ -82,8 +82,8 @@ public class ChessBoardGUI {
         etiquetaNombreJugador2 = new JLabel(nombreJugador2);
 
         // Establecer el ancho fijo y dejar que la altura se ajuste automáticamente
-        etiquetaNombreJugador1.setPreferredSize(new Dimension(200, etiquetaNombreJugador1.getPreferredSize().height));
-        etiquetaNombreJugador2.setPreferredSize(new Dimension(200, etiquetaNombreJugador2.getPreferredSize().height));
+        etiquetaNombreJugador1.setPreferredSize(new Dimension(150, etiquetaNombreJugador1.getPreferredSize().height));
+        etiquetaNombreJugador2.setPreferredSize(new Dimension(150, etiquetaNombreJugador2.getPreferredSize().height));
 
         // Establecer el texto para que esté centrado horizontal y verticalmente
         etiquetaNombreJugador1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -92,11 +92,12 @@ public class ChessBoardGUI {
         etiquetaNombreJugador2.setVerticalAlignment(SwingConstants.CENTER);
 
         // Establecer el tamaño de fuente de las etiquetas
-        etiquetaNombreJugador1.setFont(new Font("Arial", Font.PLAIN, 22));
-        etiquetaNombreJugador2.setFont(new Font("Arial", Font.PLAIN, 22));
+        etiquetaNombreJugador1.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 22));
+        etiquetaNombreJugador2.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 22));
 
         // Crear un panel para contener las etiquetas de los nombres de los jugadores
         panelOpciones = new JPanel(new GridLayout(2, 1));
+        panelOpciones.setBounds(0, 250, 300, 142);
         panelOpciones.add(etiquetaNombreJugador1);
         panelOpciones.add(etiquetaNombreJugador2);  
      
@@ -105,7 +106,7 @@ public class ChessBoardGUI {
         // Establecer la operación de cierre del JFrame al cerrar la ventana
         marco.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         // Establecer el diseño del JFrame como BorderLayout
-        marco.setLayout(new BorderLayout());
+        marco.getContentPane().setLayout(new BorderLayout());
 
         // Crear un nuevo panel con un GridLayout para representar el tablero de ajedrez
         panelTablero = new JPanel(new GridLayout(TAMANIO_TABLERO, TAMANIO_TABLERO));
@@ -126,9 +127,7 @@ public class ChessBoardGUI {
 
         // Establecer el cellRenderer para personalizar la apariencia de los elementos en la lista
         customJList.setCellRenderer(new DefaultListCellRenderer() {
-            /**
-			 * 
-			 */
+         
 			private static final long serialVersionUID = 1L;
 
 			@Override
@@ -143,23 +142,24 @@ public class ChessBoardGUI {
 
         // Establecer el tamaño y agregar la lista de movimientos al JScrollPane
         JScrollPane scrollPane = new JScrollPane(customJList);
-        scrollPane.setPreferredSize(new Dimension(100, 400)); // Establece el ancho y alto deseados
+        scrollPane.setPreferredSize(new Dimension(250, 300)); // Establece el ancho y alto deseados
 
         // Agregar el JScrollPane al JFrame en el centro
-        marco.add(scrollPane, BorderLayout.CENTER);
+        marco.getContentPane().add(scrollPane, BorderLayout.CENTER);
 
         // Establecer la celda renderer para personalizar la apariencia de los elementos en la lista
         listaMovimientos = new JList<>(listaMovimientosModelo);
      
         // Configurar el tamaño de la lista de movimientos
         listaMovimientos.setVisibleRowCount(10); // Establece el número de filas visibles
-        listaMovimientos.setFixedCellWidth(200); // Establece el ancho fijo de las celdas
+        listaMovimientos.setFixedCellWidth(250); // Establece el ancho fijo de las celdas
         
         // Inicializar el mapa que almacena las posiciones de las piezas en el tablero
         posicionesPiezas = new HashMap<>();
 
         // Crear una etiqueta para mostrar el turno actual
         etiquetaTurno = new JLabel("Turno de las Blancas");
+        etiquetaTurno.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 22));
 
         // Crear un grupo de botones de radio para los colores del tablero
         grupoColores = new ButtonGroup();
@@ -198,13 +198,18 @@ public class ChessBoardGUI {
                 reiniciarAplicacion();
             }
         });      
-        etiquetaCronometro = new JLabel();
+        
+        etiquetaCronometro = new JLabel();        
+        etiquetaCronometro.setBounds(90, 0, 140, 30);
         etiquetaCronometro.setHorizontalAlignment(SwingConstants.CENTER); // Alinear el texto al centro horizontalmente
         etiquetaCronometro.setVerticalAlignment(SwingConstants.CENTER); // Alinear el texto al centro verticalmente
-        etiquetaCronometro.setFont(new Font("Arial", Font.PLAIN, 16)); // Establecer el tamaño de fuente
+        etiquetaCronometro.setFont(new Font("DS-Digital", Font.PLAIN, 30)); // Establecer el tamaño de fuente
         etiquetaCronometro.setForeground(Color.WHITE); // Establecer el color del texto a blanco
         etiquetaCronometro.setBackground(Color.BLACK); // Establecer el color de fondo a negro
         etiquetaCronometro.setOpaque(true); // Permitir que el fondo del JLabel sea visible
+        
+        // Establecer el padding alrededor del texto (por ejemplo, 10 píxeles en todos los lados)
+        etiquetaCronometro.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         
         // Inicializar el temporizador para actualizar el cronómetro cada segundo
         timer = new Timer(1000, new ActionListener() {
@@ -219,19 +224,27 @@ public class ChessBoardGUI {
 
         // Crear un panel para contener las etiquetas de opciones y el cronómetro
         panelOpcionesYCronometro = new JPanel();
-        panelOpcionesYCronometro.setLayout(new BoxLayout(panelOpcionesYCronometro, BoxLayout.Y_AXIS)); // Alinear en dirección vertical
+        panelOpcionesYCronometro.setLayout(null);
 
         // Agregar las etiquetas al panel
         panelOpcionesYCronometro.add(etiquetaCronometro);
         panelOpcionesYCronometro.add(panelOpciones);
+        
+     // Establecer la alineación horizontal y vertical para centrar el contenido
+        panelOpcionesYCronometro.setAlignmentX(Component.CENTER_ALIGNMENT); // Centrar horizontalmente
+        panelOpcionesYCronometro.setAlignmentY(Component.CENTER_ALIGNMENT); // Centrar verticalmente
 
-        // Agregar el panel de opciones y el cronómetro en el lado oeste del marco
-        marco.add(panelOpcionesYCronometro, BorderLayout.WEST);
+     // Establecer el ancho deseado para el panelOpcionesYCronometro
+        int anchoPanelOpcionesYCronometro = 300; // Cambia el valor según tus necesidades
+        panelOpcionesYCronometro.setPreferredSize(new Dimension(anchoPanelOpcionesYCronometro, marco.getHeight()));
+
+        // Agregar el panelOpcionesYCronometro en el lado oeste del marco
+        marco.getContentPane().add(panelOpcionesYCronometro, BorderLayout.WEST);
 
         JPanel panel = new JPanel();
         panel.add(reiniciarButton);
        
-        marco.add(panel);
+        marco.getContentPane().add(panel);
         marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         marco.pack();
         marco.setVisible(true);    
@@ -242,7 +255,7 @@ public class ChessBoardGUI {
         panelOpciones.add(grisButton);
        
         // Agregar el panel de opciones en la parte superior del JFrame usando BorderLayout
-        marco.add(panelOpciones, BorderLayout.NORTH);     
+        marco.getContentPane().add(panelOpciones, BorderLayout.NORTH);     
 
         // Inicializar el tablero y configurar la interfaz gráfica
         inicializarTablero();
@@ -309,11 +322,11 @@ public class ChessBoardGUI {
         // Agregar la etiqueta del turno al panel de botones
         panelBotones.add(etiquetaTurno);
         // Agregar el panel del tablero al centro del marco usando BorderLayout
-        marco.add(panelTablero, BorderLayout.CENTER);
+        marco.getContentPane().add(panelTablero, BorderLayout.CENTER);
         // Agregar una barra de desplazamiento a la lista de movimientos y colocarla en el lado derecho del marco
-        marco.add(new JScrollPane(listaMovimientos), BorderLayout.EAST);
+        marco.getContentPane().add(new JScrollPane(listaMovimientos), BorderLayout.EAST);
         // Agregar el panel de botones en la parte inferior del marco usando BorderLayout
-        marco.add(panelBotones, BorderLayout.SOUTH);
+        marco.getContentPane().add(panelBotones, BorderLayout.SOUTH);
         // Ajustar el tamaño del marco según su contenido
         marco.pack();
         // Centrar el marco en la pantalla

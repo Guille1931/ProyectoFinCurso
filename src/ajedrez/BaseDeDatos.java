@@ -9,8 +9,11 @@ import java.util.ArrayList; // Implementación de la interfaz List que utiliza u
 import java.util.List; // Interfaz que representa una lista ordenada de elementos.
 
 public class BaseDeDatos {
+    // Lista para almacenar movimientos guardados en memoria antes de ser almacenados en la base de datos
     private static List<String> movimientosGuardados = new ArrayList<>();
+    // URL de conexión a la base de datos Access
     private static final String URL = "jdbc:ucanaccess://BD\\Partidas.accdb";
+
 
     // Método para guardar un movimiento en la base de datos
     public static void guardarMovimientoEnBaseDeDatos(String movimiento) {
@@ -47,3 +50,8 @@ public class BaseDeDatos {
         return new ArrayList<>(movimientosGuardados);
     }
 }
+
+
+
+
+

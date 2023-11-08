@@ -671,3 +671,26 @@
 07-11-2023 23:33:32 - peonB: d6 a d5
 07-11-2023 23:33:35 - alfilN: a3 a e7 (captura reyB)
 07-11-2023 23:33:43 - GANADOR: - Negras
+08-11-2023 09:35:37 - peonB: a6 a a5
+08-11-2023 10:05:54 - caballoB: b7 a c5
+08-11-2023 10:06:26 - caballoN: b0 a c2
+08-11-2023 10:06:29 - caballoB: c5 a b3
+08-11-2023 10:06:37 - caballoN: c2 a b4
+08-11-2023 10:06:43 - caballoB: b3 a c1 (captura peonN)
+08-11-2023 10:06:46 - caballoN: b4 a c6 (captura peonB)
+08-11-2023 10:06:52 - caballoB: c1 a e0 (captura reyN)
+08-11-2023 10:07:05 - GANADOR: - Blancas
+08-11-2023 13:03:55 - peonB: a6 a a5
+08-11-2023 13:04:01 - caballoN: b0 a c2
+08-11-2023 13:04:04 - caballoB: b7 a c5
+08-11-2023 13:04:06 - caballoN: c2 a b4
+08-11-2023 13:04:08 - caballoB: c5 a b3
+08-11-2023 13:04:14 - caballoN: b4 a c6 (captura peonB)
+08-11-2023 13:04:16 - caballoB: b3 a c1 (captura peonN)
+08-11-2023 13:04:27 - caballoN: c6 a e7 (captura reyB)
+08-11-2023 13:04:39 - GANADOR: - Negras
+08-11-2023 13:05:33 - peonB: a6 a a5
+08-11-2023 13:05:40 - peonN: a1 a a2
+08-11-2023 13:07:06 - peonB: a5 a a4
+08-11-2023 13:35:26 - peonN: a2 a a3
+08-11-2023 13:48:23 - peonB: a6 a a5
