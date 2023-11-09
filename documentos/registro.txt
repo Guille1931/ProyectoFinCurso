@@ -949,3 +949,24 @@ DURACION PARTIDA: 00:55
 09-11-2023 14:42:22 - caballoN: b4 a c6 (captura peonB)
 09-11-2023 14:42:27 - caballoB: c1 a e0 (captura reyN)
 09-11-2023 14:42:33 - GANADOR: - Juan Blancas  Duracion 00:39:843
+09-11-2023 16:51:30 - peonB: a6 a a5
+09-11-2023 16:51:33 - caballoN: b0 a c2
+09-11-2023 16:51:35 - peonB: a5 a a4
+09-11-2023 16:51:37 - caballoN: c2 a b4
+09-11-2023 16:51:39 - peonB: a4 a a3
+09-11-2023 16:51:41 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 16:51:43 - peonB: a3 a a2
+09-11-2023 16:51:46 - caballoN: c6 a e7 (captura reyB)
+09-11-2023 16:51:57 - GANADOR: - Noelia Negras  Duracion 00:32:03
+09-11-2023 22:35:12 - caballoB: b7 a a5
+09-11-2023 22:35:15 - caballoN: b0 a a2
+09-11-2023 22:42:33 - caballoB: b7 a c5
+09-11-2023 22:42:43 - peonN: a1 a a2
+09-11-2023 23:05:56 - caballoB: b7 a c5
+09-11-2023 23:05:58 - caballoN: b0 a a2
+09-11-2023 23:06:06 - caballoB: c5 a d3
+09-11-2023 23:06:08 - caballoN: a2 a c3
+09-11-2023 23:06:10 - caballoB: d3 a c1 (captura peonN)
+09-11-2023 23:06:24 - caballoN: c3 a a4
+09-11-2023 23:06:27 - caballoB: c1 a e0 (captura reyN)
+09-11-2023 23:06:43 - GANADOR: - Jugador 1 Blancas  Duracion 00:43:333

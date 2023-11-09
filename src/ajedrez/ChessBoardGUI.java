@@ -35,6 +35,7 @@ import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 import javax.swing.*;
 import java.awt.Toolkit;
+import com.jgoodies.forms.factories.DefaultComponentFactory;
 
 public class ChessBoardGUI {
 
@@ -66,7 +67,9 @@ public class ChessBoardGUI {
     private String nombreJugador1;
     private String nombreJugador2;
     private String ganador;
-    
+    private JLabel encabezado2;
+    private JLabel encabezado1;
+    private JLabel encabezado;
     // Constructor de la clase ChessBoardGUI que inicializa la interfaz gráfica del tablero de ajedrez
     public ChessBoardGUI() {   	
     	// Crear un cuadro de diálogo para solicitar el nombre del jugador 1
@@ -109,7 +112,7 @@ public class ChessBoardGUI {
      
     	// Crear un nuevo JFrame con el título "Tablero de Ajedrez"
         marco = new JFrame("Tablero de Ajedrez");
-        marco.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Alumnos\\Desktop\\RepositorioTAU\\ProyectoFinCurso\\ProyectoFinCurso\\imagenes\\logo"));
+        marco.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\bfc19\\Documents\\GitHub\\ProyectoFinCurso\\ProyectoFinCurso\\imagenes\\logo.png"));
         // Establecer la operación de cierre del JFrame al cerrar la ventana
         marco.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         // Establecer el diseño del JFrame como BorderLayout
@@ -121,20 +124,25 @@ public class ChessBoardGUI {
         // Inicializar el modelo de la lista de movimientos y añadir encabezados
         listaMovimientosModelo = new DefaultListModel<>();
 
-        JLabel encabezado1 = new JLabel("<html><center><font color='blue'><b>Negras</b></font></center></html>");
+        encabezado1 = new JLabel("<html><center><b>♟️Negras    ♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️</b></center></html>");
         encabezado1.setBackground(Color.BLACK); // Establecer fondo negro
         encabezado1.setForeground(Color.WHITE); // Establecer texto en blanco
+        encabezado1.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 16));
+
         encabezado1.setOpaque(true); // Hacer que el fondo sea opaco para que el color se muestre
 
-        JLabel encabezado = new JLabel("<html><center><font color='red'>-----------------------------------------<b></b></font></center></html>");
+        encabezado = new JLabel("<html><center><font color='red'><b>♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️<b></b></font></center></html>");
 
-        JLabel encabezado2 = new JLabel("<html><center><font color='blue'><b>Blancas</b></font></center></html>");
+        encabezado2 = new JLabel("<html><center><b>♟️Blancas    ♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️</b></center></html>");
         encabezado2.setBackground(Color.BLACK); // Establecer fondo negro
         encabezado2.setForeground(Color.WHITE); // Establecer texto en blanco
+        encabezado2.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 16));
+
         encabezado2.setOpaque(true); // Hacer que el fondo sea opaco para que el color se muestre
 
 
-        listaMovimientosModelo.addElement(encabezado1.getText());       
+        listaMovimientosModelo.addElement(encabezado1.getText()); 
+        listaMovimientosModelo.addElement(encabezado.getText()); 
         listaMovimientosModelo.addElement(encabezado2.getText());
         
         // Crear un JList personalizado para mostrar los encabezados en dos columnas
