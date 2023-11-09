@@ -35,6 +35,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 import javax.swing.*;
+import java.awt.Toolkit;
 
 public class ChessBoardGUI {
 
@@ -51,15 +52,18 @@ public class ChessBoardGUI {
     private ButtonGroup grupoColores;  // Grupo de botones para seleccionar el color del tablero
     private JRadioButton blancoButton;  // Botón para seleccionar el color blanco del tablero
     private JRadioButton grisButton;  // Botón para seleccionar el color gris del tablero
-    private JPanel panelOpciones;
-    private JButton reiniciarButton;
-    private List<String> movimientosGuardados = new ArrayList<>();
-    private JLabel etiquetaNombreJugador1;
-    private JLabel etiquetaNombreJugador2;
-    private JLabel etiquetaCronometro ;
-    private Timer timer;
-    private int segundosTranscurridos;
-    private JPanel panelOpcionesYCronometro;
+    private JPanel panelOpciones;  // Panel que contiene los botones de opciones de color del tablero
+    private JPanel panelOpciones_1;
+    private JButton reiniciarButton;  // Botón para reiniciar la partida
+    private List<String> movimientosGuardados = new ArrayList<>();  // Lista para almacenar los movimientos realizados
+    private JLabel etiquetaNombreJugador1;  // Etiqueta para mostrar el nombre del Jugador 1 (Blancas)
+    private JLabel etiquetaNombreJugador2;  // Etiqueta para mostrar el nombre del Jugador 2 (Negras)
+    private JLabel etiquetaCronometro;  // Etiqueta para mostrar el tiempo transcurrido
+    private Timer timer;  // Temporizador para llevar el control del tiempo
+    private int segundosTranscurridos;  // Variable para almacenar los segundos transcurridos en el cronómetro
+    private JPanel panelOpcionesYCronometro;  // Panel que contiene las opciones y el cronómetro
+    private JLabel lblNewLabel;
+
     
     // Constructor de la clase ChessBoardGUI que inicializa la interfaz gráfica del tablero de ajedrez
     public ChessBoardGUI() {   	
@@ -77,7 +81,7 @@ public class ChessBoardGUI {
             nombreJugador2 = "Jugador Negras";
         }
        
-     // Crear las etiquetas con los nombres de los jugadores
+        // Crear las etiquetas con los nombres de los jugadores
         etiquetaNombreJugador1 = new JLabel(nombreJugador1);
         etiquetaNombreJugador2 = new JLabel(nombreJugador2);
 
@@ -103,6 +107,7 @@ public class ChessBoardGUI {
      
     	// Crear un nuevo JFrame con el título "Tablero de Ajedrez"
         marco = new JFrame("Tablero de Ajedrez");
+        marco.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\bfc19\\Documents\\GitHub\\ProyectoFinCurso\\ProyectoFinCurso\\imagenes\\logo"));
         // Establecer la operación de cierre del JFrame al cerrar la ventana
         marco.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         // Establecer el diseño del JFrame como BorderLayout
@@ -111,11 +116,11 @@ public class ChessBoardGUI {
         // Crear un nuevo panel con un GridLayout para representar el tablero de ajedrez
         panelTablero = new JPanel(new GridLayout(TAMANIO_TABLERO, TAMANIO_TABLERO));
         
-     // Inicializar el modelo de la lista de movimientos y añadir encabezados
+        // Inicializar el modelo de la lista de movimientos y añadir encabezados
         listaMovimientosModelo = new DefaultListModel<>();
-        JLabel encabezado1 = new JLabel("<html><center><font color='green'><b>  Negras</b></font></center></html>");
-        JLabel encabezado = new JLabel("<html><center><font color='red'><b>     HISTORIAL MOVIMIENTOS</b></font></center></html>");
-        JLabel encabezado2 = new JLabel("<html><center><font color='blue'><b>  Blancas</b></font></center></html>");
+        JLabel encabezado1 = new JLabel("<html><center><font color='blue'><b>Negras</b></font></center></html>");
+        JLabel encabezado = new JLabel("<html><center><font color='red'><b>HISTORIAL MOVIMIENTOS</b></font></center></html>");
+        JLabel encabezado2 = new JLabel("<html><center><font color='blue'><b>Blancas</b></font></center></html>");
 
         listaMovimientosModelo.addElement(encabezado1.getText());
         listaMovimientosModelo.addElement(encabezado.getText());
@@ -153,12 +158,12 @@ public class ChessBoardGUI {
         // Configurar el tamaño de la lista de movimientos
         listaMovimientos.setVisibleRowCount(10); // Establece el número de filas visibles
         listaMovimientos.setFixedCellWidth(250); // Establece el ancho fijo de las celdas
-        
+     
         // Inicializar el mapa que almacena las posiciones de las piezas en el tablero
         posicionesPiezas = new HashMap<>();
 
         // Crear una etiqueta para mostrar el turno actual
-        etiquetaTurno = new JLabel("Turno de las Blancas");
+        etiquetaTurno = new JLabel("Turno de Blancas");
         etiquetaTurno.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 22));
 
         // Crear un grupo de botones de radio para los colores del tablero
@@ -187,18 +192,6 @@ public class ChessBoardGUI {
             }
         });          
         
-        // Crear un botón para reiniciar la aplicación
-        reiniciarButton = new JButton("Reiniciar partida");
-        reiniciarButton.setEnabled(false); // Inicializar como deshabilitado
-        
-        reiniciarButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Invocar el método para reiniciar la aplicación
-                reiniciarAplicacion();
-            }
-        });      
-        
         etiquetaCronometro = new JLabel();        
         etiquetaCronometro.setBounds(90, 0, 140, 30);
         etiquetaCronometro.setHorizontalAlignment(SwingConstants.CENTER); // Alinear el texto al centro horizontalmente
@@ -221,7 +214,6 @@ public class ChessBoardGUI {
         });                   
         timer.start(); // Iniciar el temporizador
         
-
         // Crear un panel para contener las etiquetas de opciones y el cronómetro
         panelOpcionesYCronometro = new JPanel();
         panelOpcionesYCronometro.setLayout(null);
@@ -230,11 +222,11 @@ public class ChessBoardGUI {
         panelOpcionesYCronometro.add(etiquetaCronometro);
         panelOpcionesYCronometro.add(panelOpciones);
         
-     // Establecer la alineación horizontal y vertical para centrar el contenido
+        // Establecer la alineación horizontal y vertical para centrar el contenido
         panelOpcionesYCronometro.setAlignmentX(Component.CENTER_ALIGNMENT); // Centrar horizontalmente
         panelOpcionesYCronometro.setAlignmentY(Component.CENTER_ALIGNMENT); // Centrar verticalmente
 
-     // Establecer el ancho deseado para el panelOpcionesYCronometro
+        // Establecer el ancho deseado para el panelOpcionesYCronometro
         int anchoPanelOpcionesYCronometro = 300; // Cambia el valor según tus necesidades
         panelOpcionesYCronometro.setPreferredSize(new Dimension(anchoPanelOpcionesYCronometro, marco.getHeight()));
 
@@ -242,21 +234,36 @@ public class ChessBoardGUI {
         marco.getContentPane().add(panelOpcionesYCronometro, BorderLayout.WEST);
 
         JPanel panel = new JPanel();
-        panel.add(reiniciarButton);
        
         marco.getContentPane().add(panel);
         marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         marco.pack();
         marco.setVisible(true);    
 
-        panelOpciones = new JPanel();
-        panelOpciones.add(new JLabel("Color del tablero: "));
-        panelOpciones.add(blancoButton);
-        panelOpciones.add(grisButton);
+        panelOpciones_1 = new JPanel();
+        panelOpciones_1.add(new JLabel("Color del tablero: "));
+        panelOpciones_1.add(blancoButton);
+        panelOpciones_1.add(grisButton);
        
         // Agregar el panel de opciones en la parte superior del JFrame usando BorderLayout
-        marco.getContentPane().add(panelOpciones, BorderLayout.NORTH);     
-
+        marco.getContentPane().add(panelOpciones_1, BorderLayout.NORTH);
+        
+        // Crear un botón para reiniciar la aplicación
+        reiniciarButton = new JButton("Reiniciar partida");
+        panelOpciones_1.add(reiniciarButton);
+        reiniciarButton.setEnabled(false); // Inicializar como deshabilitado
+        
+        lblNewLabel = new JLabel("New label");
+        panelOpciones_1.add(lblNewLabel);
+        
+        reiniciarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Invocar el método para reiniciar la aplicación
+                reiniciarAplicacion();
+            }
+        });      
+        
         // Inicializar el tablero y configurar la interfaz gráfica
         inicializarTablero();
         configurarInterfaz();
@@ -484,7 +491,7 @@ public class ChessBoardGUI {
             JOptionPane.setDefaultLocale(spanishLocale);
             // Definir los textos personalizados para los botones
             Object[] opciones = {"Sí", "No"};
-         // Detener el temporizador
+            // Detener el temporizador
             timer.stop();
             // La partida ha finalizado, muestra un mensaje y marca la partida como finalizada
             int respuesta = JOptionPane.showOptionDialog(null, "¡Ganador!" + (turnoBlancas ? "Negras" : "Blancas") , "Quieres volver a jugar?",
@@ -594,7 +601,7 @@ public class ChessBoardGUI {
             // Cambia el valor de la variable turnoBlancas (true a false o false a true)
             turnoBlancas = !turnoBlancas;
             // Actualiza el texto de la etiqueta del turno según el nuevo turno (Blancas o Negras)
-            etiquetaTurno.setText("Turno de " + (turnoBlancas ? "las Blancas" : "las Negras"));
+            etiquetaTurno.setText("Turno de " + (turnoBlancas ? "Blancas" : "Negras"));
             // Reinicia la casilla seleccionada a null para permitir la selección de una nueva pieza
             casillaSeleccionada = null;
         } else {
