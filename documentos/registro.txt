@@ -727,3 +727,225 @@
 08-11-2023 22:32:46 - alfilN: c0 a f3
 08-11-2023 23:31:51 - peonB: a6 a a5
 08-11-2023 23:31:53 - peonN: a1 a a2
+09-11-2023 09:32:55 - peonB: a6 a a5
+09-11-2023 09:33:06 - peonN: a1 a a2
+09-11-2023 10:26:52 - peonB: a6 a a5
+09-11-2023 10:27:01 - peonN: a1 a a2
+09-11-2023 10:46:41 - peonB: a6 a a5
+09-11-2023 10:46:44 - peonN: a1 a a2
+09-11-2023 10:47:12 - caballoB: b7 a c5
+09-11-2023 10:47:25 - caballoN: b0 a c2
+09-11-2023 10:48:33 - caballoB: c5 a b3
+09-11-2023 10:48:38 - caballoN: c2 a b4
+09-11-2023 10:48:48 - caballoB: b3 a c1 (captura peonN)
+09-11-2023 10:48:50 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 10:48:54 - caballoB: c1 a e0 (captura reyN)
+09-11-2023 10:49:17 - GANADOR: - Blancas
+09-11-2023 10:52:33 - peonB: a6 a a5
+09-11-2023 10:52:38 - peonN: a1 a a2
+09-11-2023 10:55:16 - peonB: a6 a a5
+09-11-2023 11:39:00 - peonB: a6 a a5
+09-11-2023 11:39:04 - peonN: a1 a a2
+09-11-2023 11:39:08 - peonB: a5 a a4
+09-11-2023 11:42:24 - peonN: a2 a a3
+09-11-2023 11:42:29 - peonB: b6 a b5
+09-11-2023 11:42:38 - caballoN: b0 a c2
+09-11-2023 11:42:42 - peonB: b5 a b4
+09-11-2023 11:42:44 - caballoN: c2 a b4 (captura peonB)
+09-11-2023 11:42:53 - caballoB: b7 a a5
+09-11-2023 11:42:56 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 11:43:00 - caballoB: a5 a c4
+09-11-2023 11:43:06 - caballoN: c6 a a7 (captura torreB)
+09-11-2023 11:43:13 - caballoB: c4 a d2
+09-11-2023 11:43:18 - peonN: c1 a d2 (captura caballoB)
+09-11-2023 11:43:34 - peonB: e6 a e5
+09-11-2023 11:43:39 - caballoN: a7 a c6
+09-11-2023 11:44:08 - reinaB: d7 a g4
+09-11-2023 11:44:14 - caballoN: c6 a e7 (captura reyB)
+09-11-2023 11:44:18 - GANADOR: - Negras
+09-11-2023 12:00:34 - caballoB: b7 a c5
+09-11-2023 12:00:41 - caballoN: b0 a c2
+09-11-2023 12:00:45 - caballoB: c5 a d3
+09-11-2023 12:00:47 - caballoN: c2 a b4
+09-11-2023 12:00:50 - caballoB: d3 a c1 (captura peonN)
+09-11-2023 12:00:52 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 12:00:55 - caballoB: c1 a e0 (captura reyN)
+09-11-2023 12:00:58 - GANADOR: - Blancas
+DURACION PARTIDA: 00:55
+09-11-2023 12:15:34 - caballoB: b7 a c5
+09-11-2023 12:15:36 - caballoN: b0 a c2
+09-11-2023 12:15:38 - caballoB: c5 a b3
+09-11-2023 12:15:40 - caballoN: c2 a b4
+09-11-2023 12:15:44 - caballoB: b3 a c1 (captura peonN)
+09-11-2023 12:15:46 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 12:15:49 - caballoB: c1 a e0 (captura reyN)
+09-11-2023 12:15:52 - GANADOR: - Blancas15:49
+09-11-2023 12:19:36 - caballoB: b7 a c5
+09-11-2023 12:19:49 - peonN: e1 a e2
+09-11-2023 12:19:51 - caballoB: c5 a b3
+09-11-2023 12:19:54 - peonN: e2 a e3
+09-11-2023 12:19:57 - caballoB: b3 a c1 (captura peonN)
+09-11-2023 12:19:59 - peonN: e3 a e4
+09-11-2023 12:20:02 - caballoB: c1 a e0 (captura reyN)
+09-11-2023 12:20:05 - GANADOR: - Blancasjavax.swing.Timer@3081ae02
+09-11-2023 12:28:03 - caballoB: b7 a c5
+09-11-2023 12:28:07 - caballoN: b0 a c2
+09-11-2023 12:28:13 - caballoB: c5 a d3
+09-11-2023 12:28:16 - caballoN: c2 a b4
+09-11-2023 12:28:18 - caballoB: d3 a c1 (captura peonN)
+09-11-2023 12:28:21 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 12:28:25 - caballoB: c1 a e0 (captura reyN)
+09-11-2023 12:28:27 - GANADOR: - Blancas0
+09-11-2023 12:37:18 - caballoB: b7 a c5
+09-11-2023 12:37:22 - caballoN: b0 a c2
+09-11-2023 12:37:27 - caballoB: c5 a b3
+09-11-2023 12:37:29 - caballoN: c2 a b4
+09-11-2023 12:37:32 - caballoB: b3 a c1 (captura peonN)
+09-11-2023 12:37:34 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 12:37:37 - caballoB: c1 a e0 (captura reyN)
+09-11-2023 12:37:39 - GANADOR: - Blancas  1000
+09-11-2023 12:49:20 - caballoB: b7 a c5
+09-11-2023 12:49:24 - caballoN: b0 a c2
+09-11-2023 12:49:26 - caballoB: c5 a d3
+09-11-2023 12:49:28 - caballoN: c2 a b4
+09-11-2023 12:49:31 - caballoB: d3 a c1 (captura peonN)
+09-11-2023 12:49:40 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 12:49:44 - caballoB: c1 a e0 (captura reyN)
+09-11-2023 12:49:46 - GANADOR: - Blancas  39430
+09-11-2023 13:41:39 - caballoB: b7 a c5
+09-11-2023 13:41:41 - caballoN: b0 a c2
+09-11-2023 13:41:43 - caballoB: c5 a b3
+09-11-2023 13:41:46 - caballoN: c2 a b4
+09-11-2023 13:41:48 - caballoB: b3 a c1 (captura peonN)
+09-11-2023 13:41:53 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 13:41:56 - caballoB: c1 a e0 (captura reyN)
+09-11-2023 13:42:03 - GANADOR: - Blancas  00:20
+09-11-2023 13:46:10 - caballoB: b7 a c5
+09-11-2023 13:46:13 - caballoN: b0 a c2
+09-11-2023 13:46:18 - peonB: e6 a e5
+09-11-2023 13:46:22 - peonN: e1 a e2
+09-11-2023 13:46:28 - reinaB: d7 a f5
+09-11-2023 13:46:45 - caballoN: c2 a b4
+09-11-2023 13:46:48 - reinaB: f5 a f1 (captura peonN)
+09-11-2023 13:46:51 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 13:47:00 - reinaB: f1 a e0 (captura reyN)
+09-11-2023 13:47:02 - GANADOR: - Blancas  Duracion Partida00:53
+09-11-2023 13:47:47 - peonB: e6 a e5
+09-11-2023 13:48:06 - peonN: a1 a a2
+09-11-2023 13:48:10 - reinaB: d7 a f5
+09-11-2023 13:48:21 - caballoN: b0 a c2
+09-11-2023 13:48:26 - alfilB: f7 a c4
+09-11-2023 13:48:29 - peonN: h1 a h2
+09-11-2023 13:48:37 - reinaB: f5 a f1 (captura peonN)
+09-11-2023 13:48:43 - reyN: e0 a f1 (captura reinaB)
+09-11-2023 13:49:16 - caballoB: b7 a a5
+09-11-2023 13:49:19 - peonN: h2 a h3
+09-11-2023 13:49:34 - caballoB: a5 a b3
+09-11-2023 13:49:42 - caballoN: c2 a e3
+09-11-2023 13:49:50 - peonB: a6 a a5
+09-11-2023 13:49:59 - caballoN: e3 a f5
+09-11-2023 13:50:11 - alfilB: c4 a f1 (captura reyN)
+09-11-2023 13:50:15 - GANADOR: - Blancas  Duracion 02:28
+09-11-2023 13:52:04 - caballoB: b7 a c5
+09-11-2023 13:52:08 - caballoN: b0 a c2
+09-11-2023 13:52:11 - caballoB: c5 a b3
+09-11-2023 13:52:13 - caballoN: c2 a b4
+09-11-2023 13:52:15 - caballoB: b3 a a1 (captura peonN)
+09-11-2023 13:52:18 - torreN: a0 a a1 (captura caballoB)
+09-11-2023 13:52:27 - peonB: a6 a a5
+09-11-2023 13:52:30 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 13:52:34 - caballoB: g7 a f5
+09-11-2023 13:52:38 - caballoN: c6 a a7 (captura torreB)
+09-11-2023 13:52:41 - peonB: g6 a g5
+09-11-2023 13:52:45 - caballoN: a7 a c6
+09-11-2023 13:52:50 - alfilB: f7 a h5
+09-11-2023 13:52:53 - torreN: a1 a a5 (captura peonB)
+09-11-2023 13:52:57 - alfilB: h5 a d1 (captura peonN)
+09-11-2023 13:53:01 - torreN: a5 a f5 (captura caballoB)
+09-11-2023 13:53:11 - alfilB: d1 a c0 (captura alfilN)
+09-11-2023 13:53:14 - reinaN: d0 a c0 (captura alfilB)
+09-11-2023 13:53:25 - peonB: e6 a f5 (captura torreN)
+09-11-2023 13:53:29 - caballoN: c6 a e7 (captura reyB)
+09-11-2023 13:53:31 - GANADOR: -   Negras01:28:695
+09-11-2023 13:55:56 - caballoB: b7 a c5
+09-11-2023 13:55:59 - caballoN: b0 a c2
+09-11-2023 13:56:02 - caballoB: c5 a b3
+09-11-2023 13:56:05 - caballoN: c2 a b4
+09-11-2023 13:56:08 - caballoB: b3 a c1 (captura peonN)
+09-11-2023 13:56:10 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 13:56:15 - caballoB: c1 a e0 (captura reyN)
+09-11-2023 13:56:20 - GANADOR: - Blancas  Duracion 00:28:476
+09-11-2023 13:58:32 - caballoB: b7 a c5
+09-11-2023 13:58:34 - caballoN: b0 a c2
+09-11-2023 13:58:36 - caballoB: c5 a b3
+09-11-2023 13:58:38 - caballoN: c2 a b4
+09-11-2023 13:58:40 - caballoB: b3 a c1 (captura peonN)
+09-11-2023 13:58:42 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 13:58:45 - caballoB: c1 a e0 (captura reyN)
+09-11-2023 13:58:54 - GANADOR: -  Blancas  Duracion 00:16:16188
+09-11-2023 14:12:13 - caballoB: b7 a c5
+09-11-2023 14:12:17 - caballoN: b0 a c2
+09-11-2023 14:12:19 - caballoB: c5 a b3
+09-11-2023 14:12:21 - caballoN: c2 a b4
+09-11-2023 14:12:23 - caballoB: b3 a c1 (captura peonN)
+09-11-2023 14:13:29 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 14:13:36 - peonB: a6 a a5
+09-11-2023 14:13:40 - caballoN: c6 a e7 (captura reyB)
+09-11-2023 14:14:00 - GANADOR: - null  Negras01:36:880
+09-11-2023 14:17:37 - caballoB: b7 a c5
+09-11-2023 14:17:40 - caballoN: b0 a c2
+09-11-2023 14:17:47 - caballoB: c5 a b3
+09-11-2023 14:17:49 - caballoN: c2 a b4
+09-11-2023 14:18:03 - caballoB: b3 a c1 (captura peonN)
+09-11-2023 14:18:07 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 14:18:11 - caballoB: c1 a e0 (captura reyN)
+09-11-2023 14:18:19 - GANADOR: - null Blancas  Duracion 00:40:348
+09-11-2023 14:23:30 - caballoB: b7 a c5
+09-11-2023 14:23:33 - caballoN: b0 a c2
+09-11-2023 14:23:36 - caballoB: c5 a d3
+09-11-2023 14:23:37 - caballoN: c2 a d4
+09-11-2023 14:23:39 - caballoB: d3 a c1 (captura peonN)
+09-11-2023 14:23:42 - caballoN: d4 a c6 (captura peonB)
+09-11-2023 14:23:45 - caballoB: c1 a e0 (captura reyN)
+09-11-2023 14:24:58 - GANADOR: - Guille Blancas  Duracion 00:23:829
+09-11-2023 14:28:15 - caballoB: b7 a c5
+09-11-2023 14:28:18 - caballoN: b0 a c2
+09-11-2023 14:28:20 - caballoB: c5 a b3
+09-11-2023 14:28:22 - caballoN: c2 a b4
+09-11-2023 14:28:24 - caballoB: b3 a c1 (captura peonN)
+09-11-2023 14:28:27 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 14:28:47 - caballoB: c1 a e0 (captura reyN)
+09-11-2023 14:28:49 - GANADOR: - Jose Luis Blancas  Duracion 00:39:163
+09-11-2023 14:30:14 - caballoB: b7 a a5
+09-11-2023 14:30:18 - caballoN: b0 a c2
+09-11-2023 14:30:20 - caballoB: a5 a b3
+09-11-2023 14:30:23 - caballoN: c2 a b4
+09-11-2023 14:30:25 - caballoB: b3 a c1 (captura peonN)
+09-11-2023 14:30:27 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 14:30:30 - caballoB: c1 a e0 (captura reyN)
+09-11-2023 14:30:39 - GANADOR: - Jose Luis Blancas  Duracion 00:25:354
+09-11-2023 14:32:06 - caballoB: b7 a c5
+09-11-2023 14:32:13 - peonN: e1 a e2
+09-11-2023 14:32:16 - caballoB: c5 a b3
+09-11-2023 14:32:18 - peonN: a1 a a2
+09-11-2023 14:32:20 - caballoB: b3 a c1 (captura peonN)
+09-11-2023 14:32:23 - peonN: h1 a h2
+09-11-2023 14:32:27 - caballoB: c1 a e0 (captura reyN)
+09-11-2023 14:32:32 - GANADOR: - Jose Luis Blancas  Duracion 00:30:51
+09-11-2023 14:35:27 - caballoB: b7 a c5
+09-11-2023 14:35:30 - caballoN: b0 a c2
+09-11-2023 14:35:32 - caballoB: c5 a b3
+09-11-2023 14:35:34 - caballoN: c2 a b4
+09-11-2023 14:35:35 - peonB: a6 a a5
+09-11-2023 14:35:37 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 14:35:39 - caballoB: b3 a c1 (captura peonN)
+09-11-2023 14:35:42 - caballoN: c6 a e7 (captura reyB)
+09-11-2023 14:36:02 - GANADOR: - Jugador Negras  Negras00:25:809
+09-11-2023 14:42:04 - caballoB: b7 a c5
+09-11-2023 14:42:08 - caballoN: b0 a c2
+09-11-2023 14:42:14 - caballoB: c5 a b3
+09-11-2023 14:42:17 - caballoN: c2 a b4
+09-11-2023 14:42:19 - caballoB: b3 a c1 (captura peonN)
+09-11-2023 14:42:22 - caballoN: b4 a c6 (captura peonB)
+09-11-2023 14:42:27 - caballoB: c1 a e0 (captura reyN)
+09-11-2023 14:42:33 - GANADOR: - Juan Blancas  Duracion 00:39:843
