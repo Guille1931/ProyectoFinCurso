@@ -76,9 +76,12 @@ public class ChessBoardGUI {
     private JList<String> customJList;
     private JLabel label;
     private ImageIcon iconoNormal;
+    private ImageIcon iconoNormal_1;
     private JLabel logo;
     private JPanel panel;
     private int anchoPanelOpcionesYCronometro;
+    private String piezaMovida;
+    private JLabel logo_1;
    
     // Constructor de la clase ChessBoardGUI que inicializa la interfaz gráfica del tablero de ajedrez
     public ChessBoardGUI() {   	
@@ -94,10 +97,11 @@ public class ChessBoardGUI {
         }
         if (nombreJugador2 == null || nombreJugador2.trim().isEmpty()) {
             nombreJugador2 = "Jugador 2";
-        }
-       
+        }      
+               
         // Crear las etiquetas con los nombres de los jugadores
         etiquetaNombreJugador1 = new JLabel(nombreJugador1);
+        logo_1 = new JLabel(new ImageIcon("C:\\Users\\bfc19\\Documents\\GitHub\\ProyectoFinCurso\\ProyectoFinCurso\\imagenes\\versusAmarillo.png"));
         etiquetaNombreJugador2 = new JLabel(nombreJugador2);
 
         // Establecer el ancho fijo y dejar que la altura se ajuste automáticamente
@@ -114,12 +118,16 @@ public class ChessBoardGUI {
         etiquetaNombreJugador1.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 22));
         etiquetaNombreJugador2.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 22));
 
-        // Crear un panel para contener las etiquetas de los nombres de los jugadores
-        panelOpciones = new JPanel(new GridLayout(2, 1));
+        iconoNormal_1 = new ImageIcon("imagenes/versus.png");
+        logo_1.setBounds(100, 250, iconoNormal_1.getIconWidth(), iconoNormal_1.getIconHeight());
+
+     // Crear un panel para contener las etiquetas de los nombres de los jugadores
+        panelOpciones = new JPanel(new GridLayout(3, 1));
         panelOpciones.setBounds(0, 250, 300, 142);
         panelOpciones.add(etiquetaNombreJugador1);
-        panelOpciones.add(etiquetaNombreJugador2);  
-     
+        panelOpciones.add(logo_1);  // Añadir logo_1 entre las dos etiquetas de los jugadores
+        panelOpciones.add(etiquetaNombreJugador2);
+      
     	// Crear un nuevo JFrame con el título "Tablero de Ajedrez"
         marco = new JFrame("Tablero de Ajedrez");
         marco.setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes/logoColor.png"));
@@ -135,7 +143,7 @@ public class ChessBoardGUI {
         listaMovimientosModelo = new DefaultListModel<>();
        
         encabezado = new JLabel("<html><center><font color='red'><b>♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️<b></b></font></center></html>");
-        encabezado1 = new JLabel("<html><center><b>♟️Negras    ♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️</b></center></html>");     
+        encabezado1 = new JLabel("<html><center><b>♟️Negras    ♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️</b></center></html>");     
         encabezado = new JLabel("<html><center><font color='red'><b>♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️<b></b></font></center></html>");
         encabezado2 = new JLabel("<html><center><b>♟️Blancas    ♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️</b></center></html>");
         encabezado = new JLabel("<html><center><font color='red'><b>♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️♟️<b></b></font></center></html>");
@@ -236,10 +244,9 @@ public class ChessBoardGUI {
         timer.start(); // Iniciar el temporizador
         
         iconoNormal = new ImageIcon("imagenes/logoColor.png");
-
         logo = new JLabel(iconoNormal);
         logo.setBounds(0, 380, iconoNormal.getIconWidth(), iconoNormal.getIconHeight());
-
+        
         
      // Cambiar el cursor cuando el mouse entra y sale del JLabel
         logo.addMouseListener(new MouseAdapter() {
@@ -267,7 +274,7 @@ public class ChessBoardGUI {
         panelOpcionesYCronometro.add(etiquetaCronometro);
         panelOpcionesYCronometro.add(panelOpciones);
         panelOpcionesYCronometro.add(logo);
-        
+
         // Establecer la alineación horizontal y vertical para centrar el contenido
         panelOpcionesYCronometro.setAlignmentX(Component.CENTER_ALIGNMENT); // Centrar horizontalmente
         panelOpcionesYCronometro.setAlignmentY(Component.CENTER_ALIGNMENT); // Centrar verticalmente
@@ -328,8 +335,7 @@ public class ChessBoardGUI {
     public String milisegundosAMinutosYSegundos(long milisegundos) {
         long minutos = milisegundos / 60000; // 1 minuto = 60000 milisegundos
         long segundos = (milisegundos % 60000) / 1000; // 1 segundo = 1000 milisegundos
-        long milisegundosRestantes = milisegundos % 1000; // Milisegundos restantes
-        return String.format("%02d:%02d:%02d", minutos, segundos, milisegundosRestantes); // Formatear minutos, segundos y milisegundos
+        return String.format("%02d:%02d", minutos, segundos ); // Formatear minutos, segundos 
     }
       
     public static void reiniciarAplicacion() {
@@ -602,7 +608,7 @@ public class ChessBoardGUI {
     // Método para mover una pieza desde una casilla de origen hasta una casilla de destino
     private void moverPieza(JPanel desdeCasilla, JPanel aCasilla) {
         // Obtiene el nombre de la pieza movida y de la pieza capturada (si existe)
-        String piezaMovida = posicionesPiezas.get(desdeCasilla);
+        piezaMovida = posicionesPiezas.get(desdeCasilla);
         String piezaCapturada = posicionesPiezas.get(aCasilla);
 
         // Elimina la pieza de la casilla de destino (si hay alguna)
@@ -710,7 +716,7 @@ public class ChessBoardGUI {
         int columnaHasta = panelTablero.getComponentZOrder(aCasilla) % TAMANIO_TABLERO;
 
         // Obtiene el nombre de la pieza en la casilla de origen para determinar su tipo y color
-        String piezaMovida = posicionesPiezas.get(desdeCasilla);
+        piezaMovida = posicionesPiezas.get(desdeCasilla);
 
         // Verifica si la pieza en la casilla de origen es válida
         if (piezaMovida != null) {
