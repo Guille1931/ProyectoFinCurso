@@ -39,9 +39,12 @@ import java.awt.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-public class ChessBoardGUI {
+import videoReproductor.Ventana;
 
-    private JFrame marco;  // Marco principal de la aplicación
+public class ChessBoardGUI extends JFrame{
+	
+	private static final long serialVersionUID = 1L;
+	private JFrame marco;  // Marco principal de la aplicación
     private JPanel panelTablero;  // Panel que contiene el tablero de ajedrez
     private DefaultListModel<String> listaMovimientosModelo;  // Modelo para la lista de movimientos
     private JList<String> listaMovimientos;  // Lista de movimientos
@@ -76,13 +79,14 @@ public class ChessBoardGUI {
     private JList<String> customJList;
     private JLabel label;
     private ImageIcon iconoNormal;
-    private ImageIcon iconoNormal_1;
     private JLabel logo;
     private JPanel panel;
     private int anchoPanelOpcionesYCronometro;
     private String piezaMovida;
     private JLabel logo_1;
-   
+    private JButton btnNewButton;
+    private JButton abrirVentanaButton;
+
     // Constructor de la clase ChessBoardGUI que inicializa la interfaz gráfica del tablero de ajedrez
     public ChessBoardGUI() {   	
     	// Crear un cuadro de diálogo para solicitar el nombre del jugador 1
@@ -101,7 +105,7 @@ public class ChessBoardGUI {
                
         // Crear las etiquetas con los nombres de los jugadores
         etiquetaNombreJugador1 = new JLabel(nombreJugador1);
-        logo_1 = new JLabel(new ImageIcon("C:\\Users\\bfc19\\Documents\\GitHub\\ProyectoFinCurso\\ProyectoFinCurso\\imagenes\\versusAmarillo.png"));
+        logo_1 = new JLabel(new ImageIcon("imagenes/versusAmarillo.png"));
         etiquetaNombreJugador2 = new JLabel(nombreJugador2);
 
         // Establecer el ancho fijo y dejar que la altura se ajuste automáticamente
@@ -117,11 +121,8 @@ public class ChessBoardGUI {
         // Establecer el tamaño de fuente de las etiquetas
         etiquetaNombreJugador1.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 22));
         etiquetaNombreJugador2.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 22));
-
-        iconoNormal_1 = new ImageIcon("imagenes/versus.png");
-        logo_1.setBounds(100, 250, iconoNormal_1.getIconWidth(), iconoNormal_1.getIconHeight());
-
-     // Crear un panel para contener las etiquetas de los nombres de los jugadores
+       
+        // Crear un panel para contener las etiquetas de los nombres de los jugadores
         panelOpciones = new JPanel(new GridLayout(3, 1));
         panelOpciones.setBounds(0, 250, 300, 142);
         panelOpciones.add(etiquetaNombreJugador1);
@@ -285,7 +286,18 @@ public class ChessBoardGUI {
 
         // Agregar el panelOpcionesYCronometro en el lado oeste del marco
         marco.getContentPane().add(panelOpcionesYCronometro, BorderLayout.WEST);
-
+      
+        
+        abrirVentanaButton = new JButton("Aprende a jugar");
+        abrirVentanaButton.setBounds(90, 99, 140, 23);
+        panelOpcionesYCronometro.add(abrirVentanaButton);            
+     // Agregar ActionListener al botón
+        abrirVentanaButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                abrirVentana(); // Método para abrir la ventana
+            }
+        });	        
         panel = new JPanel();
        
         marco.getContentPane().add(panel);
@@ -294,6 +306,9 @@ public class ChessBoardGUI {
         marco.setVisible(true);    
 
         panelOpciones_1 = new JPanel();
+        
+        btnNewButton = new JButton("Bloc de notas");
+        panelOpciones_1.add(btnNewButton);
         panelOpciones_1.add(new JLabel("Color del tablero: "));
         panelOpciones_1.add(blancoButton);
         panelOpciones_1.add(grisButton);
@@ -321,6 +336,13 @@ public class ChessBoardGUI {
         actualizarLabelTurno();
     } 
     
+    // Método para abrir la ventana
+    private void abrirVentana() {
+        Ventana ventana = new Ventana();
+        // Puedes configurar la ventana según tus necesidades antes de hacerla visible
+        ventana.setVisible(true);
+    }
+        
     // Método para abrir una página web en el navegador predeterminado
     private static void abrirPaginaWeb(String url) {
         try {

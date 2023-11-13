@@ -1,7 +1,7 @@
 package videoReproductor;
 
 public class Main {
-	 public static void main(String[] args) {
-	        new Ventana();
-	    }
+	public static void main(String[] args) {
+        new Ventana();
+    }
 }
