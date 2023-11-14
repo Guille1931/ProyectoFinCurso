@@ -45,56 +45,59 @@ import javax.swing.SwingConstants;
 import javax.swing.Timer;
 import javax.swing.WindowConstants;
 
+import editorTexto.EditorTexto;
 import videoReproductor.Ventana;
 
 public class ChessBoardGUI extends JFrame{
 
 	private static final long serialVersionUID = 1L;
-	private JFrame marco;  // Marco principal de la aplicación
-    private JPanel panelTablero;  // Panel que contiene el tablero de ajedrez
-    private DefaultListModel<String> listaMovimientosModelo;  // Modelo para la lista de movimientos
-    private JList<String> listaMovimientos;  // Lista de movimientos
-    private boolean turnoBlancas = true;  // Variable para controlar el turno de las blancas
-    private static final int TAMANIO_TABLERO = 8;  // Tamaño del tablero (8x8)
-    private static final int TAMANIO_CASILLA = 80;  // Tamaño de cada casilla del tablero
-    private Map<JPanel, String> posicionesPiezas;  // Mapa que almacena las posiciones de las piezas en el tablero
-    private JPanel casillaSeleccionada;  // Casilla seleccionada por el usuario para realizar un movimiento
-    private JLabel etiquetaTurno;  // Etiqueta que muestra el turno actual (blancas o negras)
-    private ButtonGroup grupoColores;  // Grupo de botones para seleccionar el color del tablero
-    private JRadioButton blancoButton;  // Botón para seleccionar el color blanco del tablero
-    private JRadioButton grisButton;  // Botón para seleccionar el color gris del tablero
-    private JPanel panelOpciones;  // Panel que contiene los botones de opciones de color del tablero
-    private JPanel panelOpciones_1;
-    private JButton reiniciarButton;  // Botón para reiniciar la partida
-    private List<String> movimientosGuardados = new ArrayList<>();  // Lista para almacenar los movimientos realizados
-    private JLabel etiquetaNombreJugador1;  // Etiqueta para mostrar el nombre del Jugador 1 (Blancas)
-    private JLabel etiquetaNombreJugador2;  // Etiqueta para mostrar el nombre del Jugador 2 (Negras)
-    private JLabel etiquetaCronometro;  // Etiqueta para mostrar el tiempo transcurrido
-    private Timer timer;  // Temporizador para llevar el control del tiempo
-    private int segundosTranscurridos;  // Variable para almacenar los segundos transcurridos en el cronómetro
-    private JPanel panelOpcionesYCronometro;  // Panel que contiene las opciones y el cronómetro
-    private JLabel lblNewLabel;
-    private long tiempoInicio; // Variable para almacenar el tiempo de inicio del temporizador
-    private String nombreJugador1;
-    private String nombreJugador2;
-    private String ganador;
-    private JLabel encabezado2;
-    private JLabel encabezado1;
-    private JLabel encabezado;
-    private JScrollPane scrollPane;
-    private JList<String> customJList;
-    private JLabel label;
-    private ImageIcon iconoNormal;
-    private JLabel logo;
-    private JPanel panel;
-    private int anchoPanelOpcionesYCronometro;
-    private String piezaMovida;
-    private JLabel logo_1;
-    private JButton btnNewButton;
-    private JButton abrirVentanaButton;
+	private JFrame marco;  // El marco principal de la aplicación
+	private JPanel panelTablero;  // Panel que contiene el tablero de ajedrez
+	private DefaultListModel<String> listaMovimientosModelo;  // Modelo para la lista de movimientos
+	private JList<String> listaMovimientos;  // Lista de movimientos
+	private boolean turnoBlancas = true;  // Variable para controlar el turno de las blancas
+	private static final int TAMANIO_TABLERO = 8;  // Tamaño del tablero (8x8)
+	private static final int TAMANIO_CASILLA = 80;  // Tamaño de cada casilla del tablero
+	private Map<JPanel, String> posicionesPiezas;  // Mapa que almacena las posiciones de las piezas en el tablero
+	private JPanel casillaSeleccionada;  // Casilla seleccionada por el usuario para realizar un movimiento
+	private JLabel etiquetaTurno;  // Etiqueta que muestra el turno actual (blancas o negras)
+	private ButtonGroup grupoColores;  // Grupo de botones para seleccionar el color del tablero
+	private JRadioButton blancoButton;  // Botón para seleccionar el color blanco del tablero
+	private JRadioButton grisButton;  // Botón para seleccionar el color gris del tablero
+	private JPanel panelOpciones;  // Panel que contiene los botones de opciones de color del tablero
+	private JPanel panelOpciones_1; // Panel auxiliar para opciones
+	private JButton reiniciarButton;  // Botón para reiniciar la partida
+	private List<String> movimientosGuardados = new ArrayList<>();  // Lista para almacenar los movimientos realizados
+	private JLabel etiquetaNombreJugador1;  // Etiqueta para mostrar el nombre del Jugador 1 (Blancas)
+	private JLabel etiquetaNombreJugador2;  // Etiqueta para mostrar el nombre del Jugador 2 (Negras)
+	private JLabel etiquetaCronometro;  // Etiqueta para mostrar el tiempo transcurrido
+	private Timer timer;  // Temporizador para llevar el control del tiempo
+	private int segundosTranscurridos;  // Variable para almacenar los segundos transcurridos en el cronómetro
+	private JPanel panelOpcionesYCronometro;  // Panel que contiene las opciones y el cronómetro
+	private JLabel lblNewLabel; // Etiqueta auxiliar
+	private long tiempoInicio; // Variable para almacenar el tiempo de inicio del temporizador
+	private String nombreJugador1; // Nombre del jugador 1
+	private String nombreJugador2; // Nombre del jugador 2
+	private String ganador; // Nombre del ganador de la partida
+	private JLabel encabezado2; // Etiqueta auxiliar
+	private JLabel encabezado1; // Etiqueta auxiliar
+	private JLabel encabezado; // Etiqueta auxiliar
+	private JScrollPane scrollPane; // Panel de desplazamiento para componentes de lista
+	private JList<String> customJList; // Lista personalizada (sin modelo por defecto)
+	private JLabel label; // Etiqueta auxiliar
+	private ImageIcon iconoNormal; // Icono de imagen normal
+	private JLabel logo; // Etiqueta para mostrar un logo
+	private JPanel panel; // Panel auxiliar
+	private int anchoPanelOpcionesYCronometro; // Ancho del panel de opciones y cronómetro
+	private String piezaMovida; // Almacena información sobre la pieza movida
+	private JLabel logo_1; // Etiqueta auxiliar para otro logo
+	private JButton btnNewButton; // Botón auxiliar
+	private JButton abrirVentanaButton; // Botón para abrir una ventana
 
-    // Constructor de la clase ChessBoardGUI que inicializa la interfaz gráfica del tablero de ajedrez
-    public ChessBoardGUI() {
+    
+    // Constructor de la clase ChessBoardGUI que inicializa la interfaz gráfica del tablero de ajedrez   
+    public ChessBoardGUI() {    
+
     	// Crear un cuadro de diálogo para solicitar el nombre del jugador 1
         nombreJugador1 = JOptionPane.showInputDialog(null, "Ingrese nombre del Jugador con Blancas:", "Juega con Blancas", JOptionPane.PLAIN_MESSAGE);
 
@@ -172,10 +175,15 @@ public class ChessBoardGUI extends JFrame{
 
 			@Override
             public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
-                label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
-                label.setHorizontalAlignment(SwingConstants.CENTER);
-                label.setForeground(Color.RED); // Establece el color del texto a rojo
-                label.setFont(label.getFont().deriveFont(Font.BOLD)); // Establece el texto en negrita
+				// Obtener el componente JLabel del método getListCellRendererComponent de la superclase
+				label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+				// Establecer la alineación horizontal del JLabel al centro
+				label.setHorizontalAlignment(SwingConstants.CENTER);
+
+                // Establece el color del texto a rojo
+                label.setForeground(Color.RED); 
+                // Establece el texto en negrita
+                label.setFont(label.getFont().deriveFont(Font.BOLD)); 
                 return label;
             }
         });
@@ -227,14 +235,22 @@ public class ChessBoardGUI extends JFrame{
             }
         });
 
-        etiquetaCronometro = new JLabel();
-        etiquetaCronometro.setBounds(90, 0, 140, 30);
-        etiquetaCronometro.setHorizontalAlignment(SwingConstants.CENTER); // Alinear el texto al centro horizontalmente
-        etiquetaCronometro.setVerticalAlignment(SwingConstants.CENTER); // Alinear el texto al centro verticalmente
-        etiquetaCronometro.setFont(new Font("DS-Digital", Font.PLAIN, 30)); // Establecer el tamaño de fuente
-        etiquetaCronometro.setForeground(Color.WHITE); // Establecer el color del texto a blanco
-        etiquetaCronometro.setBackground(Color.BLACK); // Establecer el color de fondo a negro
-        etiquetaCronometro.setOpaque(true); // Permitir que el fondo del JLabel sea visible
+        etiquetaCronometro = new JLabel(); 
+     // Establecer la posición y dimensiones de la etiqueta en el contenedor
+     etiquetaCronometro.setBounds(90, 0, 140, 30);
+     // Alinear el texto al centro horizontalmente
+     etiquetaCronometro.setHorizontalAlignment(SwingConstants.CENTER);
+     // Alinear el texto al centro verticalmente
+     etiquetaCronometro.setVerticalAlignment(SwingConstants.CENTER);
+     // Establecer la fuente y tamaño del texto
+     etiquetaCronometro.setFont(new Font("DS-Digital", Font.PLAIN, 30));
+     // Establecer el color del texto como blanco
+     etiquetaCronometro.setForeground(Color.WHITE);
+     // Establecer el color de fondo de la etiqueta como negro
+     etiquetaCronometro.setBackground(Color.BLACK);
+     // Permitir que el fondo del JLabel sea visible
+     etiquetaCronometro.setOpaque(true);
+
 
         // Establecer el padding alrededor del texto (por ejemplo, 10 píxeles en todos los lados)
         etiquetaCronometro.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -243,35 +259,46 @@ public class ChessBoardGUI extends JFrame{
         timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                segundosTranscurridos++;
-                actualizarCronometro();
+            	// Incrementa los segundos transcurridos
+                segundosTranscurridos++; 
+                // Actualiza la visualización del cronómetro
+                actualizarCronometro(); 
             }
         });
-        tiempoInicio = System.currentTimeMillis();
-        timer.start(); // Iniciar el temporizador
+        
+        // Registrar el tiempo de inicio del temporizador
+        tiempoInicio = System.currentTimeMillis(); 
+        // Iniciar el temporizador para que comience a contar el tiempo
+        timer.start(); 
+        // Cargar un icono desde un archivo
+        iconoNormal = new ImageIcon("imagenes/logoColor.png"); 
+        // Crear una etiqueta para mostrar el icono
+        logo = new JLabel(iconoNormal); 
+        // Establecer posición y tamaño de la etiqueta
+        logo.setBounds(0, 380, iconoNormal.getIconWidth(), iconoNormal.getIconHeight()); 
 
-        iconoNormal = new ImageIcon("imagenes/logoColor.png");
-        logo = new JLabel(iconoNormal);
-        logo.setBounds(0, 380, iconoNormal.getIconWidth(), iconoNormal.getIconHeight());
 
-
-     // Cambiar el cursor cuando el mouse entra y sale del JLabel
+     // Cambiar el cursor cuando el mouse entra y sale del JLabel (icono/logo)
         logo.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                abrirPaginaWeb("https://youtu.be/7EDGK3HqdqI?feature=shared");
+            	// Abre una página web al hacer clic en el logo
+                abrirPaginaWeb("https://www.chess.com/es/learn"); 
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                logo.setCursor(new Cursor(Cursor.HAND_CURSOR));
+            	// Cambia el cursor a una mano cuando el mouse entra
+                logo.setCursor(new Cursor(Cursor.HAND_CURSOR)); 
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                logo.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+            	// Restaura el cursor predeterminado al salir
+                logo.setCursor(new Cursor(Cursor.DEFAULT_CURSOR)); 
             }
         });
+
 
         // Crear un panel para contener las etiquetas de opciones y el cronómetro
         panelOpcionesYCronometro = new JPanel();
@@ -293,31 +320,44 @@ public class ChessBoardGUI extends JFrame{
         // Agregar el panelOpcionesYCronometro en el lado oeste del marco
         marco.getContentPane().add(panelOpcionesYCronometro, BorderLayout.WEST);
 
-
+     // Crear un botón para aprender a jugar
         abrirVentanaButton = new JButton("Aprende a jugar");
         abrirVentanaButton.setBounds(90, 99, 140, 23);
-        panelOpcionesYCronometro.add(abrirVentanaButton);
-     // Agregar ActionListener al botón
+        panelOpcionesYCronometro.add(abrirVentanaButton); // Agregar el botón al panel de opciones y cronómetro
+
+        // Agregar un ActionListener al botón para manejar el evento de clic
         abrirVentanaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                abrirVentana(); // Método para abrir la ventana
+            	// Método para abrir una ventana para aprender a jugar
+                abrirVentana(); 
             }
         });
-        panel = new JPanel();
 
+        panel = new JPanel();
+        // Agregar el panel al contenido del marco
         marco.getContentPane().add(panel);
+        // Configurar el cierre del marco al hacer clic en la "X"
         marco.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        // Ajustar el tamaño del marco automáticamente a los componentes internos
         marco.pack();
+        // Hacer visible el marco
         marco.setVisible(true);
 
         panelOpciones_1 = new JPanel();
-
+        // Crear un botón para abrir un bloc de notas
         btnNewButton = new JButton("Bloc de notas");
         panelOpciones_1.add(btnNewButton);
-        panelOpciones_1.add(new JLabel("Color del tablero: "));
-        panelOpciones_1.add(blancoButton);
-        panelOpciones_1.add(grisButton);
+
+        // Agregar un ActionListener al botón del bloc de notas
+        btnNewButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	// Método para abrir un bloc de notas
+                abrirVentana1(); 
+            }
+        });
+
 
         // Agregar el panel de opciones en la parte superior del JFrame usando BorderLayout
         marco.getContentPane().add(panelOpciones_1, BorderLayout.NORTH);
@@ -335,11 +375,19 @@ public class ChessBoardGUI extends JFrame{
             }
         });
 
-        // Inicializar el tablero y configurar la interfaz gráfica
+        // Inicializar el tablero de ajedrez
         inicializarTablero();
+        // Configurar la interfaz gráfica para mostrar el tablero y otros elementos
         configurarInterfaz();
-        // Actualizar el label del turno para mostrar el turno inicial
+        // Actualizar el label del turno para mostrar el turno inicial (por ejemplo, blancas o negras)
         actualizarLabelTurno();
+
+    }
+    // Método para abrir la ventana
+    private void abrirVentana1() {
+        EditorTexto editorTexto = new EditorTexto();
+        // Puedes configurar editor de texto según tus necesidades antes de hacerla visible
+        editorTexto.setVisible(true);
     }
 
     // Método para abrir la ventana
@@ -352,31 +400,43 @@ public class ChessBoardGUI extends JFrame{
     // Método para abrir una página web en el navegador predeterminado
     private static void abrirPaginaWeb(String url) {
         try {
+            // Usa la clase Desktop para abrir la URL en el navegador predeterminado
             Desktop.getDesktop().browse(new URI(url));
         } catch (IOException | URISyntaxException e) {
-            e.printStackTrace();
+            // Manejo de excepciones en caso de problemas al abrir la URL
+            e.printStackTrace(); // Imprime el seguimiento de la pila si hay un error
         }
     }
 
 
     // Método para convertir milisegundos en minutos y segundos
     public String milisegundosAMinutosYSegundos(long milisegundos) {
-        long minutos = milisegundos / 60000; // 1 minuto = 60000 milisegundos
-        long segundos = (milisegundos % 60000) / 1000; // 1 segundo = 1000 milisegundos
-        return String.format("%02d:%02d", minutos, segundos ); // Formatear minutos, segundos
+    	// Calcula la cantidad de minutos en los milisegundos
+        long minutos = milisegundos / 60000; 
+        // Calcula los segundos restantes después de los minutos
+        long segundos = (milisegundos % 60000) / 1000; 
+        // Formatea los minutos y segundos para mostrarlos correctamente
+        return String.format("%02d:%02d", minutos, segundos); 
     }
 
+    // Método para reiniciar la aplicación
     public static void reiniciarAplicacion() {
         try {
+            // Obtener la ubicación del ejecutable de Java y la información de clase actual
             String comandoJava = System.getProperty("java.home") + "/bin/java";
             String classpath = System.getProperty("java.class.path");
-            String nombreClase = "ajedrez.Main"; // Nombre completo de la clase principal
+            // Nombre completo de la clase principal
+            String nombreClase = "ajedrez.Main"; 
 
+            // Construir un nuevo proceso con los parámetros para reiniciar la aplicación actual
             ProcessBuilder constructorProceso = new ProcessBuilder(comandoJava, "-cp", classpath, nombreClase);
-            constructorProceso.start();
-            System.exit(0); // Termina el proceso actual
+            // Iniciar el proceso
+            constructorProceso.start(); 
+            // Terminar el proceso actual
+            System.exit(0); 
         } catch (Exception e) {
-            e.printStackTrace();
+        	// Imprimir información de excepción en caso de error
+            e.printStackTrace(); 
         }
     }
 

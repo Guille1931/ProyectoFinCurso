@@ -22,7 +22,8 @@ public class Registro {
          // Escribe la marca de tiempo y el movimiento en el archivo de registro.
          escritor.println(fechaHoraFormateada + " - " + movimiento);
      } catch (IOException e) {
-         e.printStackTrace(); // Manejo de errores en caso de problemas al escribir en el archivo.
+    	// Manejo de errores en caso de problemas al escribir en el archivo.
+         e.printStackTrace(); 
      }
    }
 }

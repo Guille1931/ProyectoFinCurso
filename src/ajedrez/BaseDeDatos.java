@@ -26,7 +26,8 @@ public class BaseDeDatos {
             // Ejecuta la consulta para insertar el movimiento en la tabla 'Partida'
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
-            e.printStackTrace(); // Maneja errores de SQL imprimiendo la traza de la excepción
+        	// Maneja errores de SQL imprimiendo la traza de la excepción
+            e.printStackTrace(); 
         }
     }
 
@@ -44,7 +45,8 @@ public class BaseDeDatos {
                 movimientosGuardados.add(movimiento);
             }
         } catch (SQLException e) {
-            e.printStackTrace(); // Maneja errores de SQL imprimiendo la traza de la excepción
+        	// Maneja errores de SQL imprimiendo la traza de la excepción
+            e.printStackTrace(); 
         }
         // Devuelve una nueva lista con los movimientos guardados en memoria
         return new ArrayList<>(movimientosGuardados);
