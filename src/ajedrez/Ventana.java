@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,6 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
+import javax.swing.WindowConstants;
+
 import uk.co.caprica.vlcj.component.EmbeddedMediaPlayerComponent;
 
 public class Ventana extends JFrame {
@@ -20,7 +23,6 @@ public class Ventana extends JFrame {
     private JProgressBar progressBar;
     private JLabel timeLabel;
     private Timer timer;
-
     public Ventana() {
         // Configurar la ventana
         setTitle("Reproductor de Video con VLCJ | Guillermo");
@@ -35,7 +37,7 @@ public class Ventana extends JFrame {
 
         // Establecer la ubicación de la ventana
         setLocation(x, y);
-        
+
         // Descubrir y cargar bibliotecas nativas de VLCJ
         new uk.co.caprica.vlcj.discovery.NativeDiscovery().discover();
 
@@ -130,7 +132,7 @@ public class Ventana extends JFrame {
             timer.start();
         });
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
     }
 

@@ -1,8 +1,8 @@
 package imagenesAccess;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.io.IOException;
 
 public class ImageUtils {
     public static byte[] leerImagenComoBytes(String rutaImagen) {

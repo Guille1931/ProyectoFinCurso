@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ServicioManager implements Serializable {
-    
+
     private static final long serialVersionUID = 1L;
 
     // Listas para almacenar servicios según su categoría
     private List<Servicio> serviciosUrgentes = new ArrayList<>();
     private List<Servicio> serviciosNormales = new ArrayList<>();
     private List<Servicio> serviciosPospuestos = new ArrayList<>();
-    
+
     // Lista que contiene todos los servicios
     private List<Servicio> serviciosTotales = new ArrayList<>();
 

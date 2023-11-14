@@ -3,6 +3,7 @@ package imagenesAccess;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.WindowConstants;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,7 +19,7 @@ public class Main {
 
     private static void mostrarImagen(String rutaImagen) {
         JFrame frame = new JFrame();
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         // Crear un JLabel y establecer la imagen
         JLabel label = new JLabel(new ImageIcon(rutaImagen));

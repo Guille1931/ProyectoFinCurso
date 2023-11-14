@@ -5,15 +5,21 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.WindowConstants;
-import com.jgoodies.forms.layout.FormLayout;
+
 import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.FormSpecs;
 import com.jgoodies.forms.layout.RowSpec;
 
@@ -46,7 +52,7 @@ public class ImageDatabaseExample {
 	            e.printStackTrace();
 	        }
 	    }
-	 
+
 	// Método para crear la tabla en HSQLDB
 	    private static void createTable(Connection connection) throws SQLException {
 	        try (Statement stmt = connection.createStatement()) {

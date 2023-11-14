@@ -1,12 +1,22 @@
 package examenUF1290;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.List;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
 
 public class GestorServiciosUI {
     private JFrame frame;
@@ -41,12 +51,12 @@ public class GestorServiciosUI {
     private int countUrgentes;
     private int countNormales;
     private int countPospuestos;
-    
+
     // Constructor de la interfaz de usuario
     public GestorServiciosUI() {
         // Configuración de la ventana principal
         frame = new JFrame("Gestor de Servicios");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setSize(400, 200);
 
         // Inicialización del gestor de servicios
@@ -132,7 +142,7 @@ public class GestorServiciosUI {
     // Mostrar la ventana secundaria con los servicios
     private void mostrarVentanaSecundaria(ServicioManager servicioManager) {
         secundaria = new JFrame("Servicios Mostrados");
-        secundaria.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        secundaria.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         secundaria.setSize(400, 300);
 
         // Componentes de la ventana secundaria
@@ -192,7 +202,7 @@ public class GestorServiciosUI {
                         }
                     }
 
-                    
+
 
                     // Mostrar contadores en la interfaz
                     resultadoLabel.setText(resultadoLabel.getText() +
