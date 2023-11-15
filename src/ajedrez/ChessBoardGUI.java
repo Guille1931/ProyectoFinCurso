@@ -347,7 +347,9 @@ public class ChessBoardGUI extends JFrame{
         // Agregar el panel de opciones con el ButtonGroup al JFrame usando BorderLayout en la parte superior
         marco.getContentPane().add(panelOpciones_1, BorderLayout.NORTH);
 
-        
+        btnNotas = new JButton();
+        reiniciarButton = new JButton();
+
         // Agregar un ActionListener al botón del bloc de notas
         btnNotas.addActionListener(new ActionListener() {
             @Override
