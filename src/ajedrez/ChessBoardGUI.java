@@ -324,7 +324,7 @@ public class ChessBoardGUI extends JFrame{
         blancoButton = new JRadioButton("Blanco");
         grisButton = new JRadioButton("Gris");
         blancoButton.setSelected(true);
-
+        
         // Agregar los botones de radio al grupo de botones
         grupoColores.add(blancoButton);
         grupoColores.add(grisButton);
@@ -333,23 +333,22 @@ public class ChessBoardGUI extends JFrame{
         blancoButton.addActionListener(e -> cambiarColorTablero(Color.WHITE, Color.LIGHT_GRAY));
         grisButton.addActionListener(e -> cambiarColorTablero(Color.GRAY, Color.DARK_GRAY));
 
+        btnNotas = new JButton();
+        reiniciarButton = new JButton();
+        
         // Crear el panel de opciones
         panelOpciones_1 = new JPanel();
         panelOpciones_1.setLayout(new FlowLayout()); // Cambia el layout según tus necesidades
-
+                
         // Agregar los componentes al panel de opciones
         panelOpciones_1.add(new JButton("Bloc de notas"));
         panelOpciones_1.add(new JLabel("Color del tablero: "));
         panelOpciones_1.add(blancoButton);
         panelOpciones_1.add(grisButton);        
-        panelOpciones_1.add(new JButton("Reiniciar partida"));
-
+        panelOpciones_1.add(new JButton("Reiniciar partida")); 
+        
         // Agregar el panel de opciones con el ButtonGroup al JFrame usando BorderLayout en la parte superior
         marco.getContentPane().add(panelOpciones_1, BorderLayout.NORTH);
-
-        btnNotas = new JButton();
-        reiniciarButton = new JButton();
-
         // Agregar un ActionListener al botón del bloc de notas
         btnNotas.addActionListener(new ActionListener() {
             @Override
