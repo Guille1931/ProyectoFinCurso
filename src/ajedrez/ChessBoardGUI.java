@@ -6,6 +6,7 @@ import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Desktop;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -91,9 +92,9 @@ public class ChessBoardGUI extends JFrame{
 	private int anchoPanelOpcionesYCronometro; // Ancho del panel de opciones y cronómetro
 	private String piezaMovida; // Almacena información sobre la pieza movida
 	private JLabel logo_1; // Etiqueta auxiliar para otro logo
-	private JButton btnNewButton; // Botón auxiliar
+	private JButton btnNotas; // Botón auxiliar
 	private JButton abrirVentanaButton; // Botón para abrir una ventana
-
+	
     
     // Constructor de la clase ChessBoardGUI que inicializa la interfaz gráfica del tablero de ajedrez   
     public ChessBoardGUI() {    
@@ -203,37 +204,7 @@ public class ChessBoardGUI extends JFrame{
         listaMovimientos.setFixedCellWidth(350); // Establece el ancho fijo de las celdas
 
         // Inicializar el mapa que almacena las posiciones de las piezas en el tablero
-        posicionesPiezas = new HashMap<>();
-
-        // Crear una etiqueta para mostrar el turno actual
-        etiquetaTurno = new JLabel("Turno de Blancas");
-        etiquetaTurno.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 22));
-
-        // Crear un grupo de botones de radio para los colores del tablero
-        grupoColores = new ButtonGroup();
-        // Crear botones de radio para los colores Blanco y Gris, con Blanco seleccionado por defecto
-        blancoButton = new JRadioButton("Blanco");
-        grisButton = new JRadioButton("Gris");
-        // Establecer el botón de Blanco como seleccionado por defecto
-        blancoButton.setSelected(true);
-
-        // Agregar los botones de radio al grupo de botones
-        grupoColores.add(blancoButton);
-        grupoColores.add(grisButton);
-
-        // Agregar listeners para los botones de radio para cambiar el color del tablero
-        blancoButton.addActionListener(new ActionListener() {
-            @Override
-			public void actionPerformed(ActionEvent e) {
-                cambiarColorTablero(Color.WHITE, Color.LIGHT_GRAY);
-            }
-        });
-        grisButton.addActionListener(new ActionListener() {
-            @Override
-			public void actionPerformed(ActionEvent e) {
-                cambiarColorTablero(Color.GRAY, Color.DARK_GRAY);
-            }
-        });
+        posicionesPiezas = new HashMap<>();        
 
         etiquetaCronometro = new JLabel(); 
      // Establecer la posición y dimensiones de la etiqueta en el contenedor
@@ -343,30 +314,50 @@ public class ChessBoardGUI extends JFrame{
         marco.pack();
         // Hacer visible el marco
         marco.setVisible(true);
+        
+     // Crear una etiqueta para mostrar el turno actual
+        etiquetaTurno = new JLabel("Turno de Blancas");
+        etiquetaTurno.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 22));
 
+     // Crear un grupo de botones de radio para los colores del tablero
+        grupoColores = new ButtonGroup();
+        blancoButton = new JRadioButton("Blanco");
+        grisButton = new JRadioButton("Gris");
+        blancoButton.setSelected(true);
+
+        // Agregar los botones de radio al grupo de botones
+        grupoColores.add(blancoButton);
+        grupoColores.add(grisButton);
+
+        // Agregar listeners para los botones de radio para cambiar el color del tablero
+        blancoButton.addActionListener(e -> cambiarColorTablero(Color.WHITE, Color.LIGHT_GRAY));
+        grisButton.addActionListener(e -> cambiarColorTablero(Color.GRAY, Color.DARK_GRAY));
+
+        // Crear el panel de opciones
         panelOpciones_1 = new JPanel();
-        // Crear un botón para abrir un bloc de notas
-        btnNewButton = new JButton("Bloc de notas");
-        panelOpciones_1.add(btnNewButton);
+        panelOpciones_1.setLayout(new FlowLayout()); // Cambia el layout según tus necesidades
 
+        // Agregar los componentes al panel de opciones
+        panelOpciones_1.add(new JButton("Bloc de notas"));
+        panelOpciones_1.add(new JLabel("Color del tablero: "));
+        panelOpciones_1.add(blancoButton);
+        panelOpciones_1.add(grisButton);        
+        panelOpciones_1.add(new JButton("Reiniciar partida"));
+
+        // Agregar el panel de opciones con el ButtonGroup al JFrame usando BorderLayout en la parte superior
+        marco.getContentPane().add(panelOpciones_1, BorderLayout.NORTH);
+
+        
         // Agregar un ActionListener al botón del bloc de notas
-        btnNewButton.addActionListener(new ActionListener() {
+        btnNotas.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
             	// Método para abrir un bloc de notas
                 abrirVentana1(); 
             }
-        });
-
-
-        // Agregar el panel de opciones en la parte superior del JFrame usando BorderLayout
-        marco.getContentPane().add(panelOpciones_1, BorderLayout.NORTH);
-
-        // Crear un botón para reiniciar la aplicación
-        reiniciarButton = new JButton("Reiniciar partida");
-        panelOpciones_1.add(reiniciarButton);
-        reiniciarButton.setEnabled(false);
-
+        });     
+        
+        // Agregar un ActionListener al botón de reiniciar
         reiniciarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

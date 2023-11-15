@@ -23,7 +23,7 @@ public class Registro {
          escritor.println(fechaHoraFormateada + " - " + movimiento);
      } catch (IOException e) {
     	// Manejo de errores en caso de problemas al escribir en el archivo.
-         e.printStackTrace(); 
+         e.printStackTrace();
      }
    }
 }

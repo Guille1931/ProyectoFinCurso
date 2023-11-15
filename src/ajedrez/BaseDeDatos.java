@@ -27,7 +27,7 @@ public class BaseDeDatos {
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
         	// Maneja errores de SQL imprimiendo la traza de la excepción
-            e.printStackTrace(); 
+            e.printStackTrace();
         }
     }
 
@@ -46,7 +46,7 @@ public class BaseDeDatos {
             }
         } catch (SQLException e) {
         	// Maneja errores de SQL imprimiendo la traza de la excepción
-            e.printStackTrace(); 
+            e.printStackTrace();
         }
         // Devuelve una nueva lista con los movimientos guardados en memoria
         return new ArrayList<>(movimientosGuardados);

@@ -25,20 +25,20 @@ public class EditorTexto extends JFrame {
 
     public EditorTexto() {
     	// Establece el título de la ventana
-        setTitle("Bloc de notas"); 
+        setTitle("Bloc de notas");
         // Establece el tamaño de la ventana
-        setSize(450, 350); 
+        setSize(450, 350);
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         // Ubica la ventana en la esquina inferior izquierda de la pantalla
         setLocation(0, getToolkit().getScreenSize().height - getHeight());
         // Barra de menú
-        JMenuBar menuBar = new JMenuBar(); 
+        JMenuBar menuBar = new JMenuBar();
         // Asigna la barra de menú a la ventana
-        setJMenuBar(menuBar); 
+        setJMenuBar(menuBar);
         // Menú Archivo
-        JMenu archivoMenu = new JMenu("Archivo"); 
+        JMenu archivoMenu = new JMenu("Archivo");
         // Agrega el menú Archivo a la barra de menú
-        menuBar.add(archivoMenu); 
+        menuBar.add(archivoMenu);
 
         // Elementos del menú Archivo
         JMenuItem nuevoItem = new JMenuItem("Nuevo");
@@ -55,9 +55,9 @@ public class EditorTexto extends JFrame {
         archivoMenu.add(salirItem);
 
         // Menú Editar
-        JMenu editarMenu = new JMenu("Editar"); 
+        JMenu editarMenu = new JMenu("Editar");
         // Agrega el menú Editar a la barra de menú
-        menuBar.add(editarMenu); 
+        menuBar.add(editarMenu);
 
         // Elementos del menú Editar
         JMenuItem cortarItem = new JMenuItem("Cortar");
@@ -69,21 +69,21 @@ public class EditorTexto extends JFrame {
         editarMenu.add(pegarItem);
 
         // Componente para editar el texto
-        editorPane = new JEditorPane(); 
+        editorPane = new JEditorPane();
         // Agrega barras de desplazamiento al editor
-        JScrollPane scrollPane = new JScrollPane(editorPane); 
+        JScrollPane scrollPane = new JScrollPane(editorPane);
         // Agrega el editor al centro de la ventana
-        add(scrollPane, BorderLayout.CENTER); 
+        add(scrollPane, BorderLayout.CENTER);
         // ActionListener para el elemento "Nuevo" del menú
         nuevoItem.addActionListener(new ActionListener() {
             @Override
 			public void actionPerformed(ActionEvent e) {
             	// Borra el contenido del editor
-                editorPane.setText(""); 
+                editorPane.setText("");
                 // Restablece el título
-                setTitle("Bloc de notas"); 
+                setTitle("Bloc de notas");
                 // No hay archivo abierto
-                archivoAbierto = null; 
+                archivoAbierto = null;
             }
         });
 
@@ -92,24 +92,24 @@ public class EditorTexto extends JFrame {
             @Override
 			public void actionPerformed(ActionEvent e) {
             	// Selector de archivos
-                JFileChooser fileChooser = new JFileChooser(); 
+                JFileChooser fileChooser = new JFileChooser();
                 FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de texto", "txt");
                 // Establece un filtro para archivos .txt
-                fileChooser.setFileFilter(filter); 
+                fileChooser.setFileFilter(filter);
                 // Abre el cuadro de diálogo de apertura de archivo
-                int resultado = fileChooser.showOpenDialog(EditorTexto.this); 
+                int resultado = fileChooser.showOpenDialog(EditorTexto.this);
 
                 if (resultado == JFileChooser.APPROVE_OPTION) {
                 	// Obtiene el archivo seleccionado
-                    archivoAbierto = fileChooser.getSelectedFile(); 
+                    archivoAbierto = fileChooser.getSelectedFile();
                     // Actualiza el título con el nombre del archivo
-                    setTitle("Bloc de notas - " + archivoAbierto.getName()); 
+                    setTitle("Bloc de notas - " + archivoAbierto.getName());
 
                     try {
                     	// Lee el archivo
-                        FileReader reader = new FileReader(archivoAbierto); 
+                        FileReader reader = new FileReader(archivoAbierto);
                         // Carga el contenido en el editor
-                        editorPane.read(reader, null); 
+                        editorPane.read(reader, null);
                         reader.close();
                     } catch (IOException ex) {
                         ex.printStackTrace();
@@ -125,17 +125,17 @@ public class EditorTexto extends JFrame {
                 if (archivoAbierto != null) {
                     try {
                     	// Abre el archivo para escritura
-                        FileWriter writer = new FileWriter(archivoAbierto); 
+                        FileWriter writer = new FileWriter(archivoAbierto);
                      // Guarda el contenido del editor en el archivo
-                        editorPane.write(writer); 
+                        editorPane.write(writer);
                         // Cierra el archivo
-                        writer.close(); 
+                        writer.close();
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
                 } else {
                 	// Si no hay archivo abierto, actúa como "Guardar como"
-                    guardarComoItem.doClick(); 
+                    guardarComoItem.doClick();
                 }
             }
         });
@@ -145,25 +145,25 @@ public class EditorTexto extends JFrame {
             @Override
 			public void actionPerformed(ActionEvent e) {
             	// Selector de archivos
-            	JFileChooser fileChooser = new JFileChooser(); 
+            	JFileChooser fileChooser = new JFileChooser();
                 FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de texto", "txt");
                 // Establece un filtro para archivos .txt
-                fileChooser.setFileFilter(filter); 
+                fileChooser.setFileFilter(filter);
                 // Abre el cuadro de diálogo de guardado de archivo
-                int resultado = fileChooser.showSaveDialog(EditorTexto.this); 
+                int resultado = fileChooser.showSaveDialog(EditorTexto.this);
 
                 if (resultado == JFileChooser.APPROVE_OPTION) {
                 	// Obtiene la ubicación y nombre del archivo
                     archivoAbierto = fileChooser.getSelectedFile();
                     // Actualiza el título con el nombre del archivo
-                    setTitle("Bloc de notas - " + archivoAbierto.getName()); 
+                    setTitle("Bloc de notas - " + archivoAbierto.getName());
                     try {
                     	// Abre el archivo para escritura
-                        FileWriter writer = new FileWriter(archivoAbierto); 
+                        FileWriter writer = new FileWriter(archivoAbierto);
                         // Guarda el contenido del editor en el archivo
                         editorPane.write(writer);
                         // Cierra el archivo
-                        writer.close(); 
+                        writer.close();
                     } catch (IOException ex) {
                         ex.printStackTrace();
                     }
@@ -184,7 +184,7 @@ public class EditorTexto extends JFrame {
             @Override
 			public void actionPerformed(ActionEvent e) {
             	// Corta el texto seleccionado y lo coloca en el portapapeles
-                editorPane.cut(); 
+                editorPane.cut();
             }
         });
 
@@ -193,7 +193,7 @@ public class EditorTexto extends JFrame {
             @Override
 			public void actionPerformed(ActionEvent e) {
             	// Copia el texto seleccionado al portapapeles
-            	editorPane.copy(); 
+            	editorPane.copy();
             }
         });
 
@@ -202,7 +202,7 @@ public class EditorTexto extends JFrame {
             @Override
 			public void actionPerformed(ActionEvent e) {
             	// Pega el texto del portapapeles en la posición del cursor
-            	editorPane.paste(); 
+            	editorPane.paste();
             }
         });
     }

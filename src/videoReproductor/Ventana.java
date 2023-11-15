@@ -38,12 +38,12 @@ public class Ventana extends JFrame {
     private String tiempoString;
     private JPanel panel;
 
-    public Ventana() {    	
+    public Ventana() {
 
     	// Configurar la ventana
         setTitle("Reproductor de Video con VLCJ | Guillermo");
-        setSize(450, 350);        
-        
+        setSize(450, 350);
+
         // Obtener las dimensiones de la pantalla
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
@@ -76,7 +76,7 @@ public class Ventana extends JFrame {
             slowerButton = new JButton("Lento");
             backwardButton = new JButton("Atras");
 
-            // Agregar acciones a los botones            
+            // Agregar acciones a los botones
             playButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -139,13 +139,13 @@ public class Ventana extends JFrame {
             // Agrega la barra de progreso al centro del panel de control
             controlPanel.add(progressBar, BorderLayout.CENTER);
             // Agrega la etiqueta de tiempo en la parte inferior del panel de control
-            controlPanel.add(timeLabel, BorderLayout.SOUTH); 
+            controlPanel.add(timeLabel, BorderLayout.SOUTH);
 
             mainPanel = new JPanel(new BorderLayout());
             // Agrega el panel de botones en la parte superior del panel principal
-            mainPanel.add(buttonPanel, BorderLayout.NORTH); 
+            mainPanel.add(buttonPanel, BorderLayout.NORTH);
         	// Agrega el panel de control en la parte inferior del panel principal
-            mainPanel.add(controlPanel, BorderLayout.SOUTH); 
+            mainPanel.add(controlPanel, BorderLayout.SOUTH);
             // Agrega el panel principal a la ventana en la zona sur (parte inferior)
             add(mainPanel, BorderLayout.SOUTH); // Agrega el panel principal a la ventana en la zona sur (parte inferior)
 
@@ -161,7 +161,7 @@ public class Ventana extends JFrame {
             });
             timer.start();
         });
-        
+
         // Configurar el cierre de la ventana
         addWindowListener(new WindowAdapter() {
             @Override
@@ -171,8 +171,8 @@ public class Ventana extends JFrame {
         });
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         setVisible(false);
-    }    
-    
+    }
+
     // Método para restablecer velocidad
     private void velocidadNormal() {
         if (mediaPlayerComponent != null) {
@@ -205,7 +205,7 @@ public class Ventana extends JFrame {
             setVisible(false); // Ocultar la ventana
         }
     }
-    
+
     // Método para retroceder la reproducción
     private void retroceder() {
         if (mediaPlayerComponent != null) {
@@ -242,7 +242,7 @@ public class Ventana extends JFrame {
             }
         }
     }
-    
+
     // Método para actualizar la barra de progreso y el tiempo
     private void actualizarBarraProgresoYTiempo() {
         if (mediaPlayerComponent != null) {

@@ -9,5 +9,4 @@ public class Main {
      // Invoca la interfaz gráfica de usuario en un hilo de despacho de eventos para asegurar su correcta ejecución.
      SwingUtilities.invokeLater(() -> new ChessBoardGUI());
  }
-
 }

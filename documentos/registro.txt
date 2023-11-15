@@ -1037,3 +1037,4 @@ DURACION PARTIDA: 00:55
 14-11-2023 13:41:38 - caballoN: d4 a c6 (captura peonB)
 14-11-2023 13:41:41 - caballoB: c1 a e0 (captura reyN)
 14-11-2023 13:41:48 - GANADOR: - Jugador 1 con Blancas  Duracion 00:24
+14-11-2023 20:54:29 - peonB: f6 a f5
