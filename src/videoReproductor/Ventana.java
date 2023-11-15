@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -39,8 +41,7 @@ public class Ventana extends JFrame {
     private JPanel panel;
 
     public Ventana() {
-
-    	// Configurar la ventana
+        // Configurar la ventana
         setTitle("Reproductor de Video con VLCJ | Guillermo");
         setSize(450, 350);
 
@@ -144,7 +145,7 @@ public class Ventana extends JFrame {
             mainPanel = new JPanel(new BorderLayout());
             // Agrega el panel de botones en la parte superior del panel principal
             mainPanel.add(buttonPanel, BorderLayout.NORTH);
-        	// Agrega el panel de control en la parte inferior del panel principal
+            // Agrega el panel de control en la parte inferior del panel principal
             mainPanel.add(controlPanel, BorderLayout.SOUTH);
             // Agrega el panel principal a la ventana en la zona sur (parte inferior)
             add(mainPanel, BorderLayout.SOUTH); // Agrega el panel principal a la ventana en la zona sur (parte inferior)
@@ -160,6 +161,27 @@ public class Ventana extends JFrame {
                 }
             });
             timer.start();
+
+            // Agregar el MouseListener al progressBar después de haber configurado todos los componentes
+            progressBar.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if (mediaPlayerComponent != null) {
+                        int mouseX = e.getX();
+                        int progressBarWidth = progressBar.getWidth();
+                        float position = (float) mouseX / progressBarWidth;
+
+                        // Obtener la duración total del video
+                        long duracion = mediaPlayerComponent.getMediaPlayer().getLength();
+
+                        // Calcular la posición correspondiente en el video según la posición del clic
+                        long newPosition = (long) (position * duracion);
+
+                        // Establecer la posición del video al punto clickeado
+                        mediaPlayerComponent.getMediaPlayer().setTime(newPosition);
+                    }
+                }
+            });
         });
 
         // Configurar el cierre de la ventana
@@ -228,20 +250,23 @@ public class Ventana extends JFrame {
     // Método para ajustar la velocidad de reproducción
     private void ajustarVelocidad(float rate) {
         if (mediaPlayerComponent != null) {
-            // Comprobar si se está reproduciendo y pausar antes de ajustar la velocidad
             boolean estabaReproduciendo = reproduciendo;
+
+            // Si se está reproduciendo, pausar la reproducción antes de cambiar la velocidad
             if (estabaReproduciendo) {
-                pausar();
+                mediaPlayerComponent.getMediaPlayer().pause();
             }
 
+            // Cambiar la velocidad del reproductor al valor deseado
             mediaPlayerComponent.getMediaPlayer().setRate(rate);
 
-            // Si estaba reproduciendo antes del cambio de velocidad, reanudar la reproducción
+            // Si estaba reproduciendo, reanudar la reproducción con la nueva velocidad
             if (estabaReproduciendo) {
-                reproducir();
+                mediaPlayerComponent.getMediaPlayer().play();
             }
         }
     }
+
 
     // Método para actualizar la barra de progreso y el tiempo
     private void actualizarBarraProgresoYTiempo() {

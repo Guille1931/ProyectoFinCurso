@@ -23,6 +23,7 @@ public class EditorTexto extends JFrame {
     private JEditorPane editorPane; // Componente para editar el texto
     private File archivoAbierto; // Referencia al archivo abierto
 
+    //Constructor de la clase
     public EditorTexto() {
     	// Establece el título de la ventana
         setTitle("Bloc de notas");
@@ -76,7 +77,8 @@ public class EditorTexto extends JFrame {
         add(scrollPane, BorderLayout.CENTER);
         // ActionListener para el elemento "Nuevo" del menú
         nuevoItem.addActionListener(new ActionListener() {
-            @Override
+
+			@Override
 			public void actionPerformed(ActionEvent e) {
             	// Borra el contenido del editor
                 editorPane.setText("");
@@ -89,7 +91,8 @@ public class EditorTexto extends JFrame {
 
         // ActionListener para el elemento "Abrir" del menú
         abrirItem.addActionListener(new ActionListener() {
-            @Override
+
+			@Override
 			public void actionPerformed(ActionEvent e) {
             	// Selector de archivos
                 JFileChooser fileChooser = new JFileChooser();
@@ -120,7 +123,8 @@ public class EditorTexto extends JFrame {
 
         // ActionListener para el elemento "Guardar" del menú
         guardarItem.addActionListener(new ActionListener() {
-            @Override
+
+			@Override
 			public void actionPerformed(ActionEvent e) {
                 if (archivoAbierto != null) {
                     try {
@@ -142,7 +146,8 @@ public class EditorTexto extends JFrame {
 
         // ActionListener para el elemento "Guardar como" del menú
         guardarComoItem.addActionListener(new ActionListener() {
-            @Override
+
+			@Override
 			public void actionPerformed(ActionEvent e) {
             	// Selector de archivos
             	JFileChooser fileChooser = new JFileChooser();
@@ -173,7 +178,8 @@ public class EditorTexto extends JFrame {
 
         // ActionListener para el elemento "Salir" del menú
         salirItem.addActionListener(new ActionListener() {
-            @Override
+
+			@Override
 			public void actionPerformed(ActionEvent e) {
                 System.exit(0); // Cierra la aplicación
             }
@@ -181,7 +187,8 @@ public class EditorTexto extends JFrame {
 
         // ActionListener para el elemento "Cortar" del menú
         cortarItem.addActionListener(new ActionListener() {
-            @Override
+
+			@Override
 			public void actionPerformed(ActionEvent e) {
             	// Corta el texto seleccionado y lo coloca en el portapapeles
                 editorPane.cut();
@@ -190,7 +197,8 @@ public class EditorTexto extends JFrame {
 
         // ActionListener para el elemento "Copiar" del menú
         copiarItem.addActionListener(new ActionListener() {
-            @Override
+
+			@Override
 			public void actionPerformed(ActionEvent e) {
             	// Copia el texto seleccionado al portapapeles
             	editorPane.copy();
@@ -199,12 +207,12 @@ public class EditorTexto extends JFrame {
 
         // ActionListener para el elemento "Pegar" del menú
         pegarItem.addActionListener(new ActionListener() {
-            @Override
+
+			@Override
 			public void actionPerformed(ActionEvent e) {
             	// Pega el texto del portapapeles en la posición del cursor
             	editorPane.paste();
             }
         });
     }
-
 }

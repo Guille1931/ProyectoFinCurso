@@ -14,7 +14,6 @@ public class BaseDeDatos {
     // URL de conexión a la base de datos Access
     private static final String URL = "jdbc:ucanaccess://BD\\Partidas.accdb";
 
-
     // Método para guardar un movimiento en la base de datos
     public static void guardarMovimientoEnBaseDeDatos(String movimiento) {
         // Agrega el movimiento a la lista de movimientos guardados en memoria

@@ -94,10 +94,10 @@ public class ChessBoardGUI extends JFrame{
 	private JLabel logo_1; // Etiqueta auxiliar para otro logo
 	private JButton btnNotas; // Botón auxiliar
 	private JButton abrirVentanaButton; // Botón para abrir una ventana
-	
-    
-    // Constructor de la clase ChessBoardGUI que inicializa la interfaz gráfica del tablero de ajedrez   
-    public ChessBoardGUI() {    
+
+
+    // Constructor de la clase ChessBoardGUI que inicializa la interfaz gráfica del tablero de ajedrez
+    public ChessBoardGUI() {
 
     	// Crear un cuadro de diálogo para solicitar el nombre del jugador 1
         nombreJugador1 = JOptionPane.showInputDialog(null, "Ingrese nombre del Jugador con Blancas:", "Juega con Blancas", JOptionPane.PLAIN_MESSAGE);
@@ -174,17 +174,17 @@ public class ChessBoardGUI extends JFrame{
 
 			private static final long serialVersionUID = 1L;
 
-			@Override
-            public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
+            @Override
+			public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
 				// Obtener el componente JLabel del método getListCellRendererComponent de la superclase
 				label = (JLabel) super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
 				// Establecer la alineación horizontal del JLabel al centro
 				label.setHorizontalAlignment(SwingConstants.CENTER);
 
                 // Establece el color del texto a rojo
-                label.setForeground(Color.RED); 
+                label.setForeground(Color.RED);
                 // Establece el texto en negrita
-                label.setFont(label.getFont().deriveFont(Font.BOLD)); 
+                label.setFont(label.getFont().deriveFont(Font.BOLD));
                 return label;
             }
         });
@@ -204,9 +204,9 @@ public class ChessBoardGUI extends JFrame{
         listaMovimientos.setFixedCellWidth(350); // Establece el ancho fijo de las celdas
 
         // Inicializar el mapa que almacena las posiciones de las piezas en el tablero
-        posicionesPiezas = new HashMap<>();        
+        posicionesPiezas = new HashMap<>();
 
-        etiquetaCronometro = new JLabel(); 
+        etiquetaCronometro = new JLabel();
      // Establecer la posición y dimensiones de la etiqueta en el contenedor
      etiquetaCronometro.setBounds(90, 0, 140, 30);
      // Alinear el texto al centro horizontalmente
@@ -222,51 +222,54 @@ public class ChessBoardGUI extends JFrame{
      // Permitir que el fondo del JLabel sea visible
      etiquetaCronometro.setOpaque(true);
 
-
         // Establecer el padding alrededor del texto (por ejemplo, 10 píxeles en todos los lados)
         etiquetaCronometro.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         // Inicializar el temporizador para actualizar el cronómetro cada segundo
         timer = new Timer(1000, new ActionListener() {
+
             @Override
-            public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {
             	// Incrementa los segundos transcurridos
-                segundosTranscurridos++; 
+                segundosTranscurridos++;
                 // Actualiza la visualización del cronómetro
-                actualizarCronometro(); 
+                actualizarCronometro();
             }
         });
-        
+
         // Registrar el tiempo de inicio del temporizador
-        tiempoInicio = System.currentTimeMillis(); 
+        tiempoInicio = System.currentTimeMillis();
         // Iniciar el temporizador para que comience a contar el tiempo
-        timer.start(); 
+        timer.start();
         // Cargar un icono desde un archivo
-        iconoNormal = new ImageIcon("imagenes/logoColor.png"); 
+        iconoNormal = new ImageIcon("imagenes/logoColor.png");
         // Crear una etiqueta para mostrar el icono
-        logo = new JLabel(iconoNormal); 
+        logo = new JLabel(iconoNormal);
         // Establecer posición y tamaño de la etiqueta
-        logo.setBounds(0, 380, iconoNormal.getIconWidth(), iconoNormal.getIconHeight()); 
+        logo.setBounds(0, 380, iconoNormal.getIconWidth(), iconoNormal.getIconHeight());
 
 
-     // Cambiar el cursor cuando el mouse entra y sale del JLabel (icono/logo)
+        // Cambiar el cursor cuando el mouse entra y sale del JLabel (icono/logo)
         logo.addMouseListener(new MouseAdapter() {
+
             @Override
-            public void mouseClicked(MouseEvent e) {
+			public void mouseClicked(MouseEvent e) {
             	// Abre una página web al hacer clic en el logo
-                abrirPaginaWeb("https://www.chess.com/es/learn"); 
+                abrirPaginaWeb("https://www.chess.com/es/learn");
             }
 
+
             @Override
-            public void mouseEntered(MouseEvent e) {
+			public void mouseEntered(MouseEvent e) {
             	// Cambia el cursor a una mano cuando el mouse entra
-                logo.setCursor(new Cursor(Cursor.HAND_CURSOR)); 
+                logo.setCursor(new Cursor(Cursor.HAND_CURSOR));
             }
 
+
             @Override
-            public void mouseExited(MouseEvent e) {
+			public void mouseExited(MouseEvent e) {
             	// Restaura el cursor predeterminado al salir
-                logo.setCursor(new Cursor(Cursor.DEFAULT_CURSOR)); 
+                logo.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
             }
         });
 
@@ -291,17 +294,18 @@ public class ChessBoardGUI extends JFrame{
         // Agregar el panelOpcionesYCronometro en el lado oeste del marco
         marco.getContentPane().add(panelOpcionesYCronometro, BorderLayout.WEST);
 
-     // Crear un botón para aprender a jugar
+        // Crear un botón para aprender a jugar
         abrirVentanaButton = new JButton("Aprende a jugar");
         abrirVentanaButton.setBounds(90, 99, 140, 23);
         panelOpcionesYCronometro.add(abrirVentanaButton); // Agregar el botón al panel de opciones y cronómetro
 
         // Agregar un ActionListener al botón para manejar el evento de clic
         abrirVentanaButton.addActionListener(new ActionListener() {
+
             @Override
-            public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {
             	// Método para abrir una ventana para aprender a jugar
-                abrirVentana(); 
+                abrirVentana();
             }
         });
 
@@ -314,17 +318,22 @@ public class ChessBoardGUI extends JFrame{
         marco.pack();
         // Hacer visible el marco
         marco.setVisible(true);
-        
-     // Crear una etiqueta para mostrar el turno actual
+
+        // Crear una etiqueta para mostrar el turno actual
         etiquetaTurno = new JLabel("Turno de Blancas");
         etiquetaTurno.setFont(new Font("Rockwell Extra Bold", Font.PLAIN, 22));
 
-     // Crear un grupo de botones de radio para los colores del tablero
+        // Crear un botón para reiniciar la aplicación
+        reiniciarButton = new  JButton ( "Reiniciar partida" );
+        reiniciarButton.setEnabled(false); // Inicializar como deshabilitado
+        btnNotas = new JButton("Bloc de notas");
+
+        // Crear un grupo de botones de radio para los colores del tablero
         grupoColores = new ButtonGroup();
         blancoButton = new JRadioButton("Blanco");
         grisButton = new JRadioButton("Gris");
         blancoButton.setSelected(true);
-        
+
         // Agregar los botones de radio al grupo de botones
         grupoColores.add(blancoButton);
         grupoColores.add(grisButton);
@@ -333,35 +342,35 @@ public class ChessBoardGUI extends JFrame{
         blancoButton.addActionListener(e -> cambiarColorTablero(Color.WHITE, Color.LIGHT_GRAY));
         grisButton.addActionListener(e -> cambiarColorTablero(Color.GRAY, Color.DARK_GRAY));
 
-        btnNotas = new JButton();
-        reiniciarButton = new JButton();
-        
         // Crear el panel de opciones
         panelOpciones_1 = new JPanel();
         panelOpciones_1.setLayout(new FlowLayout()); // Cambia el layout según tus necesidades
-                
+
         // Agregar los componentes al panel de opciones
-        panelOpciones_1.add(new JButton("Bloc de notas"));
+        panelOpciones_1.add(btnNotas);
         panelOpciones_1.add(new JLabel("Color del tablero: "));
         panelOpciones_1.add(blancoButton);
-        panelOpciones_1.add(grisButton);        
-        panelOpciones_1.add(new JButton("Reiniciar partida")); 
-        
+        panelOpciones_1.add(grisButton);
+        panelOpciones_1.add(reiniciarButton);
+
         // Agregar el panel de opciones con el ButtonGroup al JFrame usando BorderLayout en la parte superior
         marco.getContentPane().add(panelOpciones_1, BorderLayout.NORTH);
+
         // Agregar un ActionListener al botón del bloc de notas
         btnNotas.addActionListener(new ActionListener() {
+
             @Override
-            public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {
             	// Método para abrir un bloc de notas
-                abrirVentana1(); 
+                abrirVentana1();
             }
-        });     
-        
+        });
+
         // Agregar un ActionListener al botón de reiniciar
         reiniciarButton.addActionListener(new ActionListener() {
+
             @Override
-            public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {
                 // Invocar el método para reiniciar la aplicación
                 reiniciarAplicacion();
             }
@@ -375,6 +384,7 @@ public class ChessBoardGUI extends JFrame{
         actualizarLabelTurno();
 
     }
+
     // Método para abrir la ventana
     private void abrirVentana1() {
         EditorTexto editorTexto = new EditorTexto();
@@ -400,15 +410,14 @@ public class ChessBoardGUI extends JFrame{
         }
     }
 
-
     // Método para convertir milisegundos en minutos y segundos
     public String milisegundosAMinutosYSegundos(long milisegundos) {
     	// Calcula la cantidad de minutos en los milisegundos
-        long minutos = milisegundos / 60000; 
+        long minutos = milisegundos / 60000;
         // Calcula los segundos restantes después de los minutos
-        long segundos = (milisegundos % 60000) / 1000; 
+        long segundos = (milisegundos % 60000) / 1000;
         // Formatea los minutos y segundos para mostrarlos correctamente
-        return String.format("%02d:%02d", minutos, segundos); 
+        return String.format("%02d:%02d", minutos, segundos);
     }
 
     // Método para reiniciar la aplicación
@@ -418,28 +427,31 @@ public class ChessBoardGUI extends JFrame{
             String comandoJava = System.getProperty("java.home") + "/bin/java";
             String classpath = System.getProperty("java.class.path");
             // Nombre completo de la clase principal
-            String nombreClase = "ajedrez.Main"; 
+            String nombreClase = "ajedrez.Main";
 
             // Construir un nuevo proceso con los parámetros para reiniciar la aplicación actual
             ProcessBuilder constructorProceso = new ProcessBuilder(comandoJava, "-cp", classpath, nombreClase);
             // Iniciar el proceso
-            constructorProceso.start(); 
+            constructorProceso.start();
             // Terminar el proceso actual
-            System.exit(0); 
+            System.exit(0);
         } catch (Exception e) {
         	// Imprimir información de excepción en caso de error
-            e.printStackTrace(); 
+            e.printStackTrace();
         }
     }
 
+    // Método para obtener el nombre de la pieza desde una casilla
     public String obtenerNombrePiezaDesdeCasilla(JPanel casilla) {
         // Verifica si la casilla tiene una pieza
         if (posicionesPiezas.containsKey(casilla)) {
             return posicionesPiezas.get(casilla);
         }
-        return null; // Retorna null si la casilla está vacía
+        // Retorna null si la casilla está vacía
+        return null;
     }
 
+    // Método privado para actualizar el cronómetro de tiempo
     private void actualizarCronometro() {
         int horas = segundosTranscurridos / 3600;
         int minutos = (segundosTranscurridos % 3600) / 60;
@@ -602,7 +614,7 @@ public class ChessBoardGUI extends JFrame{
     private class EscuchaClicPieza extends MouseAdapter {
 
     	// Método que se ejecuta cuando se hace clic en una casilla del tablero
-        @Override
+		@Override
 		public void mouseClicked(MouseEvent e) {
             // Obtiene la casilla que ha sido clickeada
             JPanel casillaClickeada = (JPanel) e.getSource();
