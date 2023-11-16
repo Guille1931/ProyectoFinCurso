@@ -1062,3 +1062,11 @@ DURACION PARTIDA: 00:55
 15-11-2023 21:05:44 - caballoN: b4 a c6 (captura peonB)
 15-11-2023 21:06:01 - caballoB: c1 a e0 (captura reyN)
 15-11-2023 21:06:05 - GANADOR: - Jugador 1 con Blancas  Duracion 22:03
+16-11-2023 09:54:01 - caballoB: b7 a c5
+16-11-2023 09:54:06 - caballoN: b0 a c2
+16-11-2023 09:54:20 - caballoB: c5 a d3
+16-11-2023 09:55:13 - peonN: e1 a e2
+16-11-2023 09:55:16 - caballoB: d3 a c1 (captura peonN)
+16-11-2023 09:55:43 - caballoN: c2 a b4
+16-11-2023 09:55:46 - caballoB: c1 a e0 (captura reyN)
+16-11-2023 09:55:58 - GANADOR: - Albert con Blancas  Duracion 08:15
